@@ -27,4 +27,15 @@ public class CommonUtil {
         BigDecimal bigDecimal = new BigDecimal(value);
         return bigDecimal.setScale(2, BigDecimal.ROUND_FLOOR).doubleValue();
     }
+
+    /**
+     * 当前线程等待一秒
+     */
+    public static void waitOneSecond() {
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
 }
