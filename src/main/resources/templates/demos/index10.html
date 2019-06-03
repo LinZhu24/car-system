@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no"/>
+    <!--上面这一行便于移动端开发使用，使显示更加清晰，以后编程都加上这一行-->
+    <title>巨幕页头缩略图和警告框</title>
+    <link href="../../static/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<!--下拉菜单和滚动监听-->
+<!--data-toggle="dropdown" data-target="#dropdown"-->
+<!--<div class="dropdown" id="dropdown" data-toggle="dropdown" data-target="#dropdown">
+    <button class="btn btn-primary" id="btn2">
+        下拉菜单
+        <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu">
+        <li><a href="#">首页</a></li>
+        <li><a href="#">资讯</a></li>
+        <li><a href="#">产品</a></li>
+        <li><a href="#">关于</a></li>
+    </ul>
+</div>-->
+
+<!--<div class="container">
+    <div class="jumbotron">
+        <h2>网站标题</h2>
+        <p>这是一个学习型网站</p>
+        <p><a href="#" class="btn btn-default">更多内容</a></p>
+    </div>
+</div>
+
+<div class="jumbotron">
+    <div class="container">
+        <h2>网站标题</h2>
+        <p>这是一个学习型网站</p>
+        <p><a href="#" class="btn btn-default">更多内容</a></p>
+    </div>
+</div>-->
+<!--<div class="page-header">
+    <h1>大标题<small>小标题</small></h1>
+</div>-->
+<!--<div class="container">
+    <div class="row">
+        <div class="col-xs-6 col-md-3 col-sm-4">
+            <div class="thumbnail">&lt;!&ndash;实现 缩略图&ndash;&gt;
+                <img src="../static/images/zero.jpg" alt="">
+            </div>
+        </div>
+        <div class="col-xs-6 col-md-3 col-sm-4">
+            <div class="thumbnail">
+                <img src="../static/images/zero.jpg" alt="">
+            </div>
+        </div>
+        <div class="col-xs-6 col-md-3 col-sm-4">
+            <div class="thumbnail">
+                <img src="../static/images/zero.jpg" alt="">
+            </div>
+        </div>
+        <div class="col-xs-6 col-md-3 col-sm-4">
+            <div class="thumbnail">
+                <img src="../static/images/zero.jpg" alt="">
+            </div>
+        </div>
+    </div>
+</div>-->
+<!--<div class="container">
+    <div class="row">
+        <div class="col-xs-6 col-md-3 col-sm-4">
+            <div class="thumbnail">&lt;!&ndash;实现 缩略图&ndash;&gt;
+                <img src="../static/images/zero.jpg" alt="">
+                <div class="caption">
+                    <h3>图文哈哈</h3>
+                    <p>图片加文字的缩略图</p>
+                    <p><a href="#" class="btn btn-default">进入</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6 col-md-3 col-sm-4">
+            <div class="thumbnail">&lt;!&ndash;实现 缩略图&ndash;&gt;
+                <img src="../static/images/zero.jpg" alt="">
+                <div class="caption">
+                    <h3>图文哈哈</h3>
+                    <p>图片加文字的缩略图</p>
+                    <p><a href="#" class="btn btn-default">进入</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6 col-md-3 col-sm-4">
+            <div class="thumbnail">&lt;!&ndash;实现 缩略图&ndash;&gt;
+                <img src="../static/images/zero.jpg" alt="">
+                <div class="caption">
+                    <h3>图文哈哈</h3>
+                    <p>图片加文字的缩略图</p>
+                    <p><a href="#" class="btn btn-default">进入</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6 col-md-3 col-sm-4">
+            <div class="thumbnail">&lt;!&ndash;实现 缩略图&ndash;&gt;
+                <img src="../static/images/zero.jpg" alt="">
+                <div class="caption">
+                    <h3>图文哈哈</h3>
+                    <p>图片加文字的缩略图</p>
+                    <p><a href="#" class="btn btn-default">进入</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>-->
+<!--<div class="alert alert-success" style="margin: 0 100px">
+    成功警告框
+    <button type="button" class="close" data-dismiss="alert">
+        <span>&times;</span>
+    </button>
+</div>
+<div class="alert alert-info">Bootstrap</div>
+<div class="alert alert-warning">Bootstrap</div>
+<div class="alert alert-danger">Bootstrap</div>
+
+<div class="alert alert-success">
+    Bootstrap
+    <button type="button" class="close" data-dismiss="alert">
+        <span>&times;</span>
+    </button>
+</div>
+<div class="alert alert-success">
+    Bootstrap请到官网 <a href="#" class="alert-link">下载</a>
+</div>-->
+<!--进度条媒体对象和well组件-->
+<!--<div class="well well-lg">
+    Bootstrap
+</div>
+<div class="progress">
+    <div class="progress-bar" style="width: 60%">60%</div>
+</div>
+
+<div class="progress">
+    <div class="progress-bar" style="min-width:20px;width:0%">0%</div>
+</div>
+
+<div class="progress">
+    <div class="progress-bar progress-bar-success" style="min-width: 20px;width:60%">60%</div>
+</div>
+
+&lt;!&ndash;条纹状斑马线&ndash;&gt;
+<div class="progress">
+    <div class="progress-bar progress-bar-success progress-bar-striped" style="min-width: 20px;width:60%">60%</div>
+</div>
+&lt;!&ndash;动画效果&ndash;&gt;
+<div class="progress">
+    <div class="progress-bar progress-bar-success progress-bar-striped active" style="min-width: 20px;width:60%">60%</div>
+</div>
+&lt;!&ndash;堆叠效果&ndash;&gt;
+<div class="progress">
+    <div class="progress-bar progress-bar-danger progress-bar-striped"
+         style="min-width: 20px;width:20%">20%</div>
+    <div class="progress-bar progress-bar-warning progress-bar-striped"
+         style="min-width: 20px;width:40%">40%</div>
+    <div class="progress-bar progress-bar-success progress-bar-striped"
+         style="min-width: 20px;width:40%">40%</div>
+</div>-->
+<!--<div class="media">
+    <div class="media-left media-top">
+        <img src="../static/images/joke2.jpeg" alt="" class="media-object">
+    </div>
+    <div class="media-body">
+        <h4 class="media-heading">内容标题</h4>
+        <p>林姓，主要源自子姓、姬姓及少数民族改姓等， 是东夷一支称林方， 南迁后称“郴”。林义与曹近似，“木”是建木，也就是天杆圭表， 又名扶桑，扶木。二建木并立为林，“林”下为天齐坛台（渐台）。 林姓是风姓别支，又作梵。[1] 中华书局刊印的《辞海》合订本载：林 ，“姓也， 史谓殷比干避难长林之山，因以林为氏</p>
+    </div>
+</div>
+<div class="media">
+
+    <div class="media-body">
+        <h4 class="media-heading">内容标题</h4>
+        <p>林姓，主要源自子姓、姬姓及少数民族改姓等， 是东夷一支称林方， 南迁后称“郴”。林义与曹近似，“木”是建木，也就是天杆圭表， 又名扶桑，扶木。二建木并立为林，“林”下为天齐坛台（渐台）。 林姓是风姓别支，又作梵。[1] 中华书局刊印的《辞海》合订本载：林 ，“姓也， 史谓殷比干避难长林之山，因以林为氏</p>
+    </div>
+    <div class="media-right">
+        <img src="../static/images/joke2.jpeg" alt="" class="media-object">
+    </div>
+</div>-->
+<!--<ul class="media-list">
+    <li class="media">
+        <div class="media">
+            <div class="media-left">
+                <img src="../static/images/奥迪.png" alt="" class="media-object">
+            </div>
+            <div class="media-body">
+                <h4 class="media-heading">内容标题</h4>
+                <p>林姓，主要源自子姓、姬姓及少数民族改姓等， 是东夷一支称林方， 南迁后称“郴”。林义与曹近似，“木”是建木，也就是天杆圭表， 又名扶桑，扶木。二建木并立为林，“林”下为天齐坛台（渐台）。 林姓是风姓别支，又作梵。[1] 中华书局刊印的《辞海》合订本载：林 ，“姓也， 史谓殷比干避难长林之山，因以林为氏</p>
+                <div class="media">
+                    <div class="media">
+                        <div class="media-left">
+                            <img src="../static/images/宝马.png" alt="" class="media-object">
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading">内容标题</h4>
+                            <p>林姓，主要源自子姓、姬姓及少数民族改姓等， 是东夷一支称林方， 南迁后称“郴”。林义与曹近似，“木”是建木，也就是天杆圭表， 又名扶桑，扶木。二建木并立为林，“林”下为天齐坛台（渐台）。 林姓是风姓别支，又作梵。[1] 中华书局刊印的《辞海》合订本载：林 ，“姓也， 史谓殷比干避难长林之山，因以林为氏</p>
+                            <div class="media">
+                                <div class="media">
+                                    <div class="media-left">
+                                        <img src="../static/images/保时捷.png" alt="" class="media-object">
+                                    </div>
+                                    <div class="media-body">
+                                        <h4 class="media-heading">内容标题</h4>
+                                        <p>林姓，主要源自子姓、姬姓及少数民族改姓等， 是东夷一支称林方， 南迁后称“郴”。林义与曹近似，“木”是建木，也就是天杆圭表， 又名扶桑，扶木。二建木并立为林，“林”下为天齐坛台（渐台）。 林姓是风姓别支，又作梵。[1] 中华书局刊印的《辞海》合订本载：林 ，“姓也， 史谓殷比干避难长林之山，因以林为氏</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="media">
+                    <div class="media">
+                        <div class="media-left">
+                            <img src="../static/images/保时捷.png" alt="" class="media-object">
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading">内容标题</h4>
+                            <p>林姓，主要源自子姓、姬姓及少数民族改姓等， 是东夷一支称林方， 南迁后称“郴”。林义与曹近似，“木”是建木，也就是天杆圭表， 又名扶桑，扶木。二建木并立为林，“林”下为天齐坛台（渐台）。 林姓是风姓别支，又作梵。[1] 中华书局刊印的《辞海》合订本载：林 ，“姓也， 史谓殷比干避难长林之山，因以林为氏</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li class="media">
+        <div class="media">
+            <div class="media-left">
+                <img src="../static/images/joke2.jpeg" alt="" class="media-object">
+            </div>
+            <div class="media-body">
+                <h4 class="media-heading">内容标题</h4>
+                <p>林姓，主要源自子姓、姬姓及少数民族改姓等， 是东夷一支称林方， 南迁后称“郴”。林义与曹近似，“木”是建木，也就是天杆圭表， 又名扶桑，扶木。二建木并立为林，“林”下为天齐坛台（渐台）。 林姓是风姓别支，又作梵。[1] 中华书局刊印的《辞海》合订本载：林 ，“姓也， 史谓殷比干避难长林之山，因以林为氏</p>
+            </div>
+        </div>
+    </li>
+</ul>-->
+<!--<ul class="list-group">
+    <li class="list-group-item">1.首页</li>
+    <li class="list-group-item">2.第二</li>
+    <li class="list-group-item">3.第三</li>
+    <li class="list-group-item">4.末尾</li>
+</ul>
+
+<li class="list-group-item">1.这是开始
+    <span class="badge">10</span>
+</li>
+
+<br>
+<div class="list-group">
+    <a href="#" class="list-group-item active">
+        this is the start<span class="badge">10</span></a>
+    <a href="#" class="list-group-item">this is the second</a>
+    <a href="#" class="list-group-item">
+        <h4>list Title</h4>
+        <p>exact part.....</p>
+    </a>
+    <a href="#" class="list-group-item list-group-item-success">this is the end</a>
+</div>
+
+<div class="list-group">
+    <button class="list-group-item">123</button>
+    <button class="list-group-item">123</button>
+    <button class="list-group-item">123</button>
+    <button class="list-group-item active">123</button>
+</div>-->
+<!--<div class="panel panel-danger">
+    <div class="panel-heading">
+        <h3 class="panel-title">i am title region</h3>
+    </div>
+    <div class="panel-body">
+        i am a panel container
+    </div>
+    <table class="table">
+        <tr>
+            <th>1</th>
+            <th>2</th>
+            <th>3</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+        </tr>
+    </table>
+    <ul class="list-group">
+        <li class="list-group-item">1.首页</li>
+        <li class="list-group-item">2.第二</li>
+        <li class="list-group-item">3.第三</li>
+        <li class="list-group-item">4.末尾</li>
+    </ul>
+    <div class="panel-footer">
+        i am the footer
+    </div>
+</div>-->
+<!--模态框创建-->
+<!--模态框声明-->
+<!--
+<div class="modal fade" id="myModal" tabindex="-1">
+    &lt;!&ndash;窗口声明&ndash;&gt;
+    <div class="modal-dialog modal-sm">
+        &lt;!&ndash;内容声明&ndash;&gt;
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close" data-dismiss="modal"><span>&times;</span></button>
+                <h4 class="modal-title">会员登录</h4>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-4">1</div>
+                        <div class="col-md-4">2</div>
+                        <div class="col-md-4">3</div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-dafault">注册</button>
+                <button class="btn btn-primary">登录</button>
+            </div>
+        </div>
+    </div>
+</div>
+&lt;!&ndash;<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" href="farload.html">点击会出现登录弹窗</button>&ndash;&gt;
+<button class="btn btn-primary btn-lg" id="btn1">点击会出现登录弹窗</button>
+-->
+<!--<nav id="nav2" class="navbar navbar-default">
+    <a href="#" class="navbar-brand">Web开发</a>
+    <ul class="nav navbar-nav">
+        <li><a href="#html5">Html5</a></li>
+        <li><a href="#bootstrap">Bootstrap</a></li>
+        <li class="dropdown">
+            <a href="#" data-toggle="dropdown">JavaScript<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                <li><a href="#jquery">jQuery</a></li>
+                <li><a href="#yui">Yui</a></li>
+                <li><a href="#extjs">ExtJS</a></li>
+            </ul>
+        </li>
+    </ul>
+</nav>-->
+
+<nav id="nav" class="navbar navbar-default">
+    <a href="#" class="navbar-brand">Web开发</a>
+    <ul class="nav navbar-nav">
+        <li><a href="#html5">Html5</a></li>
+        <li><a href="#bootstrap">Bootstrap</a></li>
+        <li class="dropdown">
+            <a href="#" data-toggle="dropdown">JavaScript<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                <li><a href="#jquery">jQuery</a></li>
+                <li><a href="#yui">Yui</a></li>
+                <li><a href="#extjs">ExtJS</a></li>
+            </ul>
+        </li>
+    </ul>
+</nav>
+<!--data-offset="0" data-target="#nav" data-spy="scroll"-->
+<div id="content" data-offset="0" data-target="#nav" data-spy="scroll" style="padding: 0 10px;position: relative; height: 200px;overflow:auto">
+    <section class="sec">
+        <h4 id="html5">HTML5 <a th:href="#" onclick="removeSec(this)">删除</a></h4>
+        <p>腾讯体育讯 北京时间3月16日，NBA常规赛继续进行，开拓者在主场以113-105击败骑士获得11连胜。开拓者报了两队本赛季首次交锋负于对手的一箭之仇，达米安-利拉德拿到24分和9次助攻，CJ-麦科勒姆贡献29分；骑士在波特兰已经五连败，勒布朗-詹姆斯拿到35分、14个篮板、6次助攻、3个盖帽和2次抢断。</p>
+    </section>
+    <section class="sec">
+        <h4 id="bootstrap">Bootstrap</h4>
+        <p>开拓者五人得分上双，除了利拉德和麦科勒姆之外，毛里斯-哈克里斯拿到17分，埃文-特纳得到11分、7个篮板和5次助攻，艾尔-法鲁克-阿米努得了11分和9个篮板，尤素夫-努尔基奇入账7分和10个篮板。</p>
+    </section>
+    <section class="sec">
+        <h4 id="jquery">jQuery</h4>
+        <p>骑士这套阵容收到了不错的效果，在开局短暂的落后之后，他们很快就与开拓者形成激战的势头，在首节进行到7分02秒时，詹姆斯隔扣努尔基奇得手，带领骑士取得15-14的领先。两队就这样交替领先，凭借阿米努在首节还剩0.8秒时的准压哨三分，开拓者在本节结束时将比分追至29平。本节骑士21投12中命中率达到55%，其中科沃尔拿了10分；开拓者本节26投11中命中率只有40%，其中利拉德三分球5投0中，但他们首发五人的得分都超过4分</p>
+    </section>
+    <section class="sec">
+        <h4 id="yui">Yui</h4>
+        <p>在本场比赛首节进行到7分02秒时，詹姆斯外线持球组织进攻，他利用队友的掩护甩开防守球员，然后从左侧45度角直接杀往篮下。这个时候四名开拓者球员过来堵截，但是冲起来的詹姆斯是可以阻挡的吗？显然不是，只见詹姆斯高高飞起，直接迎着努尔基奇的防守将球砸进篮筐，完成了一次技惊四座的隔人暴扣。替补席上的骑士球员顿时跳起来为詹姆斯欢呼，就连现场的开拓者球迷都惊呆了。詹姆斯的这记隔扣，绝对会进入五佳球。</p>
+    </section>
+    <section class="sec">
+        <h4 id="extjs">ExtJS</h4>
+        <p>在比赛还剩4分48秒时，利拉德跳投命中，开拓者105-93还领先12分。之后骑士打出一波9-0的攻势将比分追至102-105，但阿米努马上还以一记三分，接着詹姆斯又出现失误，特纳后撤步跳投命中，开拓者连得5分稳住了局势。此后克拉克森命中三分，开拓者接连投篮不中，骑士看到了逆转的希望，但是詹姆斯一次反击上篮不中，骑士错失追分良机，詹姆斯自己也蹲在地上显得非常懊恼。最终开拓者以113-105击败骑士，收获11连胜</p>
+    </section>
+</div>
+
+
+<script src="../../static/js/jquery.min.js"></script>
+<script src="../../static/js/bootstrap.min.js"></script>
+<!--script type="text/javascript">
+    $('#btn1').on('click',function () {
+       $('#myModal').modal('show');
+    });
+    $('#myModal').modal({
+        show:false,
+        remote:'farload.html'
+    });
+    $('#myModal').on('show.bs.modal',function () {
+        alert('当调用show方法时立即触发！')
+    });
+    $('#myModal').on('shown.bs.modal',function () {
+        alert('当弹框完全出现时再执行！')
+    });
+    $('#myModal').on('hide.bs.modal',function () {
+        alert('当调用hide方法时立即触发！')
+    });
+    $('#myModal').on('hidden.bs.modal',function () {
+        alert('当模态框完全关闭后触发！')
+    });
+    $('#myModal').on('loaded.bs.modal',function () {
+        alert('当远程加载后触发！')
+    });
+</script>-->
+<script type="text/javascript">
+   // $('#btn2').dropdown();
+   //$('#btn2').dropdown('toggle');
+/*   $('#dropdown').on('show.bs.dropdown',function () {
+      alert('调用show方法时执行');
+   });*/
+/*    $('#content').scrollspy({
+        offset:0,
+        target:'#nav',
+    });
+    $('#nav').on('activate.bs.scrollspy',function () {
+        alert('新条目被激活');
+    });*/
+    function removeSec(e) {
+        $(e).parents('.sec').remove();
+        $('#content').scrollspy('refresh');
+    }
+</script>
+</body>
+</html>

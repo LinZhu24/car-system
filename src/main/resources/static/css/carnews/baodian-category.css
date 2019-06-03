@@ -1,0 +1,486 @@
+.baodian-wrap{
+    width:1210px;
+    margin: 0 auto;
+}
+body{
+    background: #fff !important; ;
+}
+
+.baodian-caption-wrap{
+    width: 100%;
+    background: #fafafa;
+    height: 60px;
+    line-height: 60px;
+    font-size: 18px;
+    color:#333;
+    font-weight: bold;
+    overflow: hidden;
+}
+.baodian-caption-wrap  .slider-nav{
+    float: right;
+    height: 60px;
+}
+.baodian-caption-wrap .title{
+    font-weight: bold;
+}
+.baodian-caption-wrap  .slider-nav li{
+    float: left;
+    padding:0 32px 0 0;
+    line-height: 56px;
+}
+.baodian-caption-wrap  .slider-nav a{
+    font-size: 14px;
+    color: #585858;
+    font-weight: bold;
+    display: block;
+}
+.baodian-caption-wrap  li.active a{
+    color: #ff5a37;
+    border-bottom: 2px solid #ff5a37;
+}
+
+/*宝典面包屑导航*/
+
+.baodian-crumbs-nav{
+    height: 62px;
+    line-height: 62px;
+    font-size: 14px;
+    color: #aaa;
+}
+.baodian-crumbs-nav a{
+    font-size: 14px;
+    color: #aaa;
+}
+
+/*宝典分类如百科主题内容部分*/
+
+.baodian-category-content{
+    width: 1210px;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 0 0 30px 0;
+}
+
+.canon-container-left {
+    width: 290px;
+    float: left;
+    overflow: hidden;
+}
+.slider-bar{
+    background: #f8f8f8;
+    padding: 0 0 30px 0;
+    -webkit-transition: all 0.4s linear;
+    transition: all 0.4s linear;
+}
+.slider-bar dl{
+    overflow: hidden;
+    padding: 22px 0 0px;
+}
+.slider-bar  dt.active a,.slider-bar    dd.active a{
+    color: #ff5a37;
+}
+
+.slider-bar dt a{
+    font-size: 18px;
+    color: #333;
+    padding: 0 0 5px 20px;
+    line-height: 30px;
+    font-weight: normal;
+}
+.slider-bar dd{
+    float: left;
+    padding: 0 10px 0 20px;
+    height: 26px;
+    line-height: 26px;
+    width: 66px;
+    position: relative;
+}
+.slider-bar dd a{
+    font-size: 14px;
+    color: #888;
+}
+.slider-bar dd  .icon01{
+    position: absolute;
+    top: 2px;
+    right: 7px;
+}
+
+.canon-code-img{
+    background: #f8f8f8;
+    margin: 30px 0 0;
+}
+.canon-code-img  img{
+    display: block;
+}
+
+/*购车宝典*/
+.buycar-baodian{
+    width: 290px;
+    background:url(/newweb/img/baodian/buycar-baodian.png) no-repeat ;
+    height: 312px;
+    margin: 30px 0 0;
+}
+.buycar-baodian  .buycar-title{
+    font-size: 20px;
+    color: #333;
+  text-align: center;
+    line-height: 20px;
+    padding: 150px 0 0;
+
+}
+.buycar-baodian  .small-f{
+    font-size: 16px;
+    color: #333;
+    text-align: center;
+    line-height: 46px;
+}
+.buycar-baodian  .num-box{
+    padding: 16px 0 0;
+    font-size: 14px;
+    color: #666;
+    text-align: center;
+    line-height: 20px;
+}
+.buycar-baodian  .num-box  em{
+    font-size: 18px;
+    color:#ff5a37;
+    font-style: normal;
+}
+
+.baodian-category-content  .baodian-category-right{
+    margin-left: 320px;
+}
+.baodian-category-right .baodian-baike li{
+    border-bottom: 1px solid #f5f5f5;
+    padding:20px 0;
+}
+.baodian-category-right .baodian-baike li:first-child{
+    padding-top: 0;
+}
+.baodian-category-right   .baodian-baike li:last-child{
+    border-bottom: 0;
+}
+.baodian-category-right li a{
+    display: block;
+}
+.baodian-category-right  .caption{
+    font-size: 20px;
+    color: #333;
+    line-height: 32px;
+    font-weight: bold;
+}
+.baodian-category-right  .caption:hover{
+    color: #ff5a37;
+}
+.baodian-category-right .text{
+    padding: 8px 0 0;
+    font-size: 14px;
+    line-height: 24px;
+    color: #898a8b;
+}
+.baodian-category-right   .tagging-box{
+    height: 22px;
+    overflow: hidden;
+    padding: 16px 0 0
+}
+.baodian-category-right  .fl{
+    float: left;
+}
+.baodian-category-right  .fl .ele{
+    padding-right: 30px;
+    font-size: 14px;
+    color: #aaa;
+}
+.baodian-category-right .ele img{
+    margin: 0 4px 0 0;
+}
+.baodian-category-right  .fr{
+    float: right;
+}
+
+.baodian-category-right .fr  .ele{
+    height: 22px;
+    line-height: 22px;
+    text-align: center;
+    background: #f6f7fa;
+    width: 62px;
+    color: #7b8899;
+    font-size: 12px;
+    margin-right: 10px;
+    display: inline-block;
+}
+.baodian-category-right  .img-box{
+    display: block;
+    height: 145px;
+    width: 210px;
+    float: left;
+}
+.baodian-category-right  .img-box  img{
+    display: block;
+    height: 145px;
+    width: 210px;
+}
+
+.baodian-category-right  .carlife-box{
+    margin-left: 230px;
+}
+/*分页*/
+
+.con-page {
+    margin: 20px auto 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    font-size:0;
+}
+.con-page span,
+.con-page strong,
+.con-page a {
+    display: inline-block;
+    padding: 5px 6px;
+    border-radius: 3px;
+    margin-right: 5px;
+    border: 1px solid #d9d9d9;
+    color: #666666;
+    font: normal 14px "Microsoft YaHei";
+    min-width: 14px;
+}
+.Cnew-page a {
+    background: #fff
+}
+.con-page strong,
+.con-page a {
+    cursor: pointer
+}
+.con-page a:hover {
+    background-color: #ff5837;
+    color: #ffffff;
+    border-color:#ff5837;
+}
+.con-page strong,
+.con-page span.page-current {
+    background: #ff5837;
+    color: #ffffff;
+    border-color:#ff5837;
+}
+
+/*车生活*/
+
+.baodian-category-right .baodian-carlife li{
+    padding-bottom: 25px;
+    overflow: hidden;
+}
+
+.mt0{
+    margin-top: 0;
+}
+/*右边侧边栏*/
+.baodian-slide-bar{
+    width: 48px;
+    background: #fff;
+    position: fixed;
+    right: 0;
+    top: 0px;
+    z-index: 99;
+    box-shadow: -7px 0 5px -5px  rgba(0,0,0,0.2);
+   -webkit-box-shadow: -7px 0 5px -5px  rgba(0,0,0,0.2);
+    -moz-box-shadow: -7px 0 5px -5px  rgba(0,0,0,0.2);
+    -ms-box-shadow: -7px 0 5px -5px  rgba(0,0,0,0.2);
+    height: 100%;
+}
+
+.baodian-slide-bar .item{
+    display: block;
+    padding: 10px 0 ;
+    position: relative;
+    cursor: pointer;
+
+}
+.baodian-slide-bar .tiwen-box{
+    display: block;
+    position: relative;
+    cursor: pointer;
+    margin-top: 105px;
+}
+.baodian-slide-bar .item.active,.baodian-slide-bar .tiwen-box.active{
+    background: #3e3f40;
+}
+.baodian-slide-bar .item:hover,.baodian-slide-bar .tiwen-box:hover{
+    background: #3e3f40;
+}
+.baodian-slide-bar .item:hover .text{
+    color: #fff;
+}
+.baodian-slide-bar .item .l-box{
+    position: absolute;
+    height: 100%;
+    left: -60px;
+    top: 0;
+    background: #ff5a37;
+    width: 60px;
+    text-align: center;
+    font-size: 12px;
+    color: #fff;
+    line-height:56px;
+    display: none;
+}
+.baodian-slide-bar .item i,.baodian-slide-bar .tiwen-box i {
+    background: url(/newweb/img/baodian/icon.png) no-repeat;
+    display: block;
+    /*height: 26px;
+    width: 46px;*/
+    height: 20px;
+    width: 32px;
+
+}
+/*.baodian-slide-bar .item i.icon01{
+    background-position: -21px 0;
+}
+.baodian-slide-bar .item i.icon02{
+    background-position: -66px 0;
+}
+.baodian-slide-bar .item i.icon03{
+    background-position: -114px 0;
+}
+.baodian-slide-bar .item i.icon04{
+    background-position: -163px 0;
+}
+.baodian-slide-bar .item i.icon05{
+    background-position:-209px 0;
+}
+.baodian-slide-bar .item i.icon06{
+    background-position: -256px 0;
+}
+.baodian-slide-bar .item i.icon07{
+    background-position:-303px 0;
+}
+.baodian-slide-bar .item i.icon08{
+    background-position:-352px 0;
+}
+.baodian-slide-bar .item i.icon09{
+    background-position:-398px 0;
+}*/
+
+.baodian-slide-bar .item i.icon01{
+    background-position: -11px 0;
+}
+.baodian-slide-bar .item i.icon02{
+    background-position: -47px 0;
+}
+.baodian-slide-bar .item i.icon03{
+    background-position: -84px 0;
+}
+.baodian-slide-bar .item i.icon04{
+    background-position: -120px 0;
+}
+.baodian-slide-bar .item i.icon05{
+    background-position:-157px 0;
+}
+.baodian-slide-bar .item i.icon06{
+    background-position: -193px 0;
+}
+.baodian-slide-bar .item i.icon07{
+    background-position:-231px 0;
+}
+/*.baodian-slide-bar .item i.icon08, .baodian-slide-bar .tiwen-box i.icon08{
+    background-position:-268px 0;
+}*/
+.baodian-slide-bar .tiwen-box i.icon08{
+    background-position: -268px 11px;
+    padding: 10px 0;
+}
+.baodian-slide-bar .item i.icon09{
+    background-position:-306px 0;
+}
+.baodian-slide-bar .item:hover i.icon09{
+    background-position:-306px -54px;
+}
+.baodian-slide-bar .item  .text{
+    font-size: 12px;
+    color: #585858;
+    text-align: center;
+    line-height: 16px;
+    display: block;
+}
+.baodian-slide-bar  .line{
+    background: #e9e9e9;
+    height: 1px;
+    width: 30px;
+    margin: 0 0 0 9px;
+    display: block;
+}
+
+
+.baodian-slide-bar   .code-box{
+    background: #fff;
+    padding:20px;
+    position: absolute;
+    left: -120px;
+    top:-80px;
+    display: none;
+    cursor: pointer;
+    z-index: 200;
+}
+.baodian-slide-bar   .code-box img{
+    display: block;
+	width:80px;
+	height:80px;
+}
+.baodian-slide-bar   .code-box .youxin{
+    font-size: 12px;
+    color: #3e3f40;
+    display: block;
+    line-height: 16px;
+}
+.baodian-slide-bar   .tiwen{
+    position: absolute;
+    top: -72px;
+    left: -109px;
+}
+.baodian-slide-bar  .item  .gotop{
+    line-height:40px;
+	height:40px;
+}
+.baodian-slide-bar  .tiwen-box{
+    display: block;
+    cursor: pointer;
+    margin-top: 105px;
+	position: absolute;
+    right: 0;
+    bottom: 56px;
+	width:48px;
+}
+
+.baodian-slide-bar  .Js-gotop{
+    display: none;
+}
+
+.baodian-slide-bar .wrap-gotop{
+    display: block;
+    width: 48px;
+    height: 56px;
+    position: absolute;
+    right: 0;
+    bottom: -2px;
+}
+.baodian-slide-bar  .item.mt{
+    margin: 60px 0 0;
+}
+.fixed-head-wrap{
+    position: relative;
+}
+/*jira-9500 侧边栏h1标签改为strong标签 --start*/
+    .buycar-baodian  .buycar-strong-title{
+        display: block;
+        font-size: 20px;
+        color: #333;
+        text-align: center;
+        line-height: 20px;
+        padding: 150px 0 0;
+        font-weight: normal;
+    }
+/*jira-9500 侧边栏h1标签改为strong标签 --end*/
+.baodian-slide-bar .tiwen img {
+    width: 109px;
+}
+

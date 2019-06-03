@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"><!--thymeleaf的头文件-->
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no"/>
+    <!--上面这一行便于移动端开发使用，使显示更加清晰，以后编程都加上这一行-->
+    <title>欣欣实验页面</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="/css/style.css" rel="stylesheet"/>
+    <link href="/css/bootstrap-table.css" rel="stylesheet"/>
+
+<!--    <link href="/css/dateRange.css" rel="stylesheet"/>-->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+
+    <script src="/js/bootstrap-table.js"></script>
+    <script src="/js/bootstrap-table-export.js"></script>
+    <script src="/js/jquery.base64.js"></script>
+    <script src="/js/tableExport.js"></script>
+<!--    <script src="/js/dateRange.js"></script>-->
+    <style>
+        body{
+            font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+            font-size: 14px;
+            line-height: 1.42857143;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+<div id="content">
+    <div id="content-body">
+        <div id="reportTableDiv" class="span10">
+            <table id="reportTable">
+            </table>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        $('#reportTable').bootstrapTable({
+            method: 'get',
+            cache: false,
+            height: 400,
+            striped: true,
+            pagination: true,
+            pageSize: 20,
+            pageNumber:1,
+            pageList: [10, 20, 50, 100, 200, 500],
+            search: true,
+            showColumns: true,
+            showRefresh: true,
+            showExport: true,
+            //exportTypes: ['csv','txt','xml'],
+            search: true,
+            clickToSelect: true,
+            columns: [
+                {field:"user_email",title:"邮箱",align:"center",valign:"middle",sortable:"true"},
+                {field:"user_company",title:"公司",align:"center",valign:"middle",sortable:"true"},
+                {field:"user_dates",title:"时间",align:"center",valign:"middle",sortable:"true"},
+                {field:"user_lastlogintime",title:"最晚登录时间",align:"center",valign:"middle",sortable:"true"},
+                {field:"user_version",title:"版本",align:"center",valign:"middle",sortable:"true"},
+                {field:"user_isv2",title:"isv2",align:"center",valign:"middle",sortable:"true"},
+                {field:"userstatus_usertype",title:"用户类型",align:"center",valign:"middle",sortable:"true"},
+                {field:"userstatus_package_id",title:"包的ID",align:"center",valign:"middle",sortable:"true"},
+                {field:"userstatus_end_time",title:"结束时间",align:"center",valign:"middle",sortable:"true"}],
+            data : [
+                {"user_email":"123@gmail.com","user_company":"","user_dates":"2014-10-13 13:35:51","user_lastlogintime":"0","user_version":"0","user_isv2":"0","userstatus_usertype":"0","userstatus_package_id":"100014","userstatus_end_time":"NULL"},
+                {"user_email":"416@xxxxddffg.com","user_company":"NULL","user_dates":"2014-10-13 13:35:51","user_lastlogintime":"0","user_version":"1","user_isv2":"0","userstatus_usertype":"0","userstatus_package_id":"100001","userstatus_end_time":"NULL"},
+                {"user_email":"200@polus.co.jp","user_company":"","user_dates":"2014-10-31 13:02:47","user_lastlogintime":"1414726074","user_version":"0","user_isv2":"1","userstatus_usertype":"0","userstatus_package_id":"100014","userstatus_end_time":"0"},
+                {"user_email":"205@gmail.com","user_company":"","user_dates":"2014-11-21 11:00:10","user_lastlogintime":"1416564204","user_version":"0","user_isv2":"0","userstatus_usertype":"0","userstatus_package_id":"100014","userstatus_end_time":"0"},
+                {"user_email":"ket@gmail.com","user_company":"","user_dates":"2014-10-13 13:35:51","user_lastlogintime":"0","user_version":"0","user_isv2":"0","userstatus_usertype":"0","userstatus_package_id":"100014","userstatus_end_time":"NULL"},
+                {"user_email":"1bunko@gmail.com","user_company":"","user_dates":"2014-10-18 07:52:40","user_lastlogintime":"1413618760","user_version":"0","user_isv2":"0","userstatus_usertype":"0","userstatus_package_id":"100014","userstatus_end_time":"NULL"},
+                {"user_email":"723@gmail.com","user_company":"","user_dates":"2014-10-13 13:35:51","user_lastlogintime":"0","user_version":"0","user_isv2":"0","userstatus_usertype":"0","userstatus_package_id":"100014","userstatus_end_time":"NULL"},
+                {"user_email":"555@gmail.com","user_company":"","user_dates":"2014-10-13 13:35:51","user_lastlogintime":"0","user_version":"0","user_isv2":"0","userstatus_usertype":"0","userstatus_package_id":"100014","userstatus_end_time":"NULL"},
+                {"user_email":"111@com","user_company":"NULL","user_dates":"2014-10-13 13:35:51","user_lastlogintime":"0","user_version":"1","user_isv2":"0","userstatus_usertype":"0","userstatus_package_id":"100001","userstatus_end_time":"NULL"},
+                {"user_email":"1@1.cn","user_company":"NULL","user_dates":"2014-10-13 13:35:51","user_lastlogintime":"0","user_version":"1","user_isv2":"0","userstatus_usertype":"0","userstatus_package_id":"100001","userstatus_end_time":"NULL"},
+                {"user_email":"14codemail@gmail.com","user_company":"","user_dates":"2014-10-13 13:35:51","user_lastlogintime":"1408461794","user_version":"0","user_isv2":"0","userstatus_usertype":"0","userstatus_package_id":"100014","userstatus_end_time":"NULL"},
+                {"user_email":"1475_ishi@mail.sofmap.co.jp","user_company":"株式会社ソフマップ","user_dates":"2014-12-04 02:50:15","user_lastlogintime":"1417661415","user_version":"0","user_isv2":"1","userstatus_usertype":"0","userstatus_package_id":"100014","userstatus_end_time":"0"},
+                {"user_email":"1475.ishi@gmail.com","user_company":"","user_dates":"2014-12-04 02:53:04","user_lastlogintime":"1417661584","user_version":"0","user_isv2":"1","userstatus_usertype":"0","userstatus_package_id":"100014","userstatus_end_time":"0"},
+                {"user_email":"1357040404@qq.com","user_company":"dasdsa","user_dates":"2014-10-13 13:35:51","user_lastlogintime":"0","user_version":"0","user_isv2":"0","userstatus_usertype":"0","userstatus_package_id":"100014","userstatus_end_time":"NULL"},
+                {"user_email":"1342608193@qq.com","user_company":"","user_dates":"2014-10-13 13:35:51","user_lastlogintime":"0","user_version":"1","user_isv2":"0","userstatus_usertype":"0","userstatus_package_id":"100001","userstatus_end_time":"0"},
+                {"user_email":"1296bty@gmail.com","user_company":"studio koaa","user_dates":"2014-10-13 13:35:51","user_lastlogintime":"1410838384","user_version":"0","user_isv2":"0","userstatus_usertype":"0","userstatus_package_id":"100014","userstatus_end_time":"0"},
+                {"user_email":"125699954@qq.com","user_company":"TL zhongguomeng","user_dates":"2014-10-13 13:35:51","user_lastlogintime":"1408086219","user_version":"1","user_isv2":"0","userstatus_usertype":"0","userstatus_package_id":"100001","userstatus_end_time":"NULL"},
+                {"user_email":"125482750@qq.com","user_company":"","user_dates":"2014-10-23 16:00:10","user_lastlogintime":"1411314157","user_version":"1","user_isv2":"0","userstatus_usertype":"0","userstatus_package_id":"100001","userstatus_end_time":"0"},
+                {"user_email":"123@789.com","user_company":"NULL","user_dates":"2014-10-13 13:35:51","user_lastlogintime":"0","user_version":"1","user_isv2":"0","userstatus_usertype":"0","userstatus_package_id":"100001","userstatus_end_time":"0"},
+                {"user_email":"123@456.com","user_company":"NULL","user_dates":"2014-10-13 13:35:51","user_lastlogintime":"0","user_version":"1","user_isv2":"0","userstatus_usertype":"0","userstatus_package_id":"100001","userstatus_end_time":"0"},
+                {"user_email":"123@234.com","user_company":"NULL","user_dates":"2014-10-13 13:35:51","user_lastlogintime":"0","user_version":"1","user_isv2":"0","userstatus_usertype":"0","userstatus_package_id":"100001","userstatus_end_time":"0"},
+                {"user_email":"123@123.com","user_company":"NULL","user_dates":"2014-10-13 13:35:51","user_lastlogintime":"0","user_version":"1","user_isv2":"0","userstatus_usertype":"0","userstatus_package_id":"100001","userstatus_end_time":"0"},
+                {"user_email":"1234zhuxu@163.com","user_company":"asiainfo","user_dates":"2014-10-13 13:35:51","user_lastlogintime":"0","user_version":"1","user_isv2":"0","userstatus_usertype":"0","userstatus_package_id":"100001","userstatus_end_time":"NULL"},
+                {"user_email":"123123@1.1","user_company":"NULL","user_dates":"2014-11-05 07:13:20","user_lastlogintime":"0","user_version":"0","user_isv2":"1","userstatus_usertype":"0","userstatus_package_id":"100014","userstatus_end_time":"0"},
+                {"user_email":"1228689783@qq.com","user_company":"","user_dates":"2014-10-13 13:35:51","user_lastlogintime":"1407315451","user_version":"1","user_isv2":"0","userstatus_usertype":"0","userstatus_package_id":"100001","userstatus_end_time":"NULL"},
+                {"user_email":"1212@11.1","user_company":"NULL","user_dates":"2014-11-05 07:12:40","user_lastlogintime":"0","user_version":"0","user_isv2":"1","userstatus_usertype":"0","userstatus_package_id":"100014","userstatus_end_time":"0"},
+                {"user_email":"12121@ptengine.com","user_company":"NULL","user_dates":"2014-10-23 13:48:58","user_lastlogintime":"0","user_version":"0","user_isv2":"1","userstatus_usertype":"0","userstatus_package_id":"100014","userstatus_end_time":"0"},
+                {"user_email":"1209910627@qq.com","user_company":"","user_dates":"2014-10-13 13:35:51","user_lastlogintime":"0","user_version":"1","user_isv2":"0","userstatus_usertype":"0","userstatus_package_id":"100001","userstatus_end_time":"NULL"},
+                {"user_email":"1209839271@qq.com","user_company":"NULL","user_dates":"2014-10-13 13:35:51","user_lastlogintime":"0","user_version":"1","user_isv2":"0","userstatus_usertype":"0","userstatus_package_id":"100001","userstatus_end_time":"NULL"},
+                {"user_email":"11n008@yamanashi-eiwa.ac.jp","user_company":"","user_dates":"2014-10-21 14:04:54","user_lastlogintime":"1413872406","user_version":"0","user_isv2":"1","userstatus_usertype":"0","userstatus_package_id":"100014","userstatus_end_time":"0"},
+                {"user_email":"11ashien@gmail.com","user_company":"","user_dates":"2014-11-21 13:04:00","user_lastlogintime":"1416351979","user_version":"0","user_isv2":"1","userstatus_usertype":"0","userstatus_package_id":"100014","userstatus_end_time":"0"},
+                {"user_email":"11@11.1","user_company":"NULL","user_dates":"2014-11-19 03:10:40","user_lastlogintime":"0","user_version":"0","user_isv2":"0","userstatus_usertype":"0","userstatus_package_id":"100014","userstatus_end_time":"0"},
+                {"user_email":"1179696697@qq.com","user_company":"yunrui","user_dates":"2014-12-08 15:23:37","user_lastlogintime":"1418052217","user_version":"1","user_isv2":"1","userstatus_usertype":"3","userstatus_package_id":"100011","userstatus_end_time":"1419055650640"},
+                {"user_email":"111@111.1","user_company":"NULL","user_dates":"2014-10-23 12:04:48","user_lastlogintime":"0","user_version":"0","user_isv2":"1","userstatus_usertype":"0","userstatus_package_id":"100014","userstatus_end_time":"0"},
+                {"user_email":"1111@1111.1","user_company":"NULL","user_dates":"2014-10-23 13:09:45","user_lastlogintime":"0","user_version":"0","user_isv2":"1","userstatus_usertype":"0","userstatus_package_id":"100014","userstatus_end_time":"0"},
+                {"user_email":"10dashin@gmail.com","user_company":"TENDA","user_dates":"2014-11-12 06:42:41","user_lastlogintime":"1415774561","user_version":"0","user_isv2":"0","userstatus_usertype":"2","userstatus_package_id":"100020","userstatus_end_time":"0"},
+                {"user_email":"109da.music@gmail.com","user_company":"","user_dates":"2014-10-13 13:35:51","user_lastlogintime":"1408479330","user_version":"0","user_isv2":"0","userstatus_usertype":"0","userstatus_package_id":"100014","userstatus_end_time":"NULL"},
+                {"user_email":"103373139@qq.com","user_company":"NULL","user_dates":"2014-10-29 11:24:06","user_lastlogintime":"0","user_version":"0","user_isv2":"1","userstatus_usertype":"0","userstatus_package_id":"100014","userstatus_end_time":"0"},
+                {"user_email":"1033731391775@qq.com","user_company":"NULL","user_dates":"2014-10-29 11:27:41","user_lastlogintime":"0","user_version":"0","user_isv2":"1","userstatus_usertype":"0","userstatus_package_id":"100014","userstatus_end_time":"0"},
+                {"user_email":"1031kara@gmail.com","user_company":"aniwo","user_dates":"2014-10-13 13:35:51","user_lastlogintime":"1412251657","user_version":"0","user_isv2":"0","userstatus_usertype":"0","userstatus_package_id":"100014","userstatus_end_time":"0"},
+                {"user_email":"1025432471@qq.com","user_company":"Digitaling","user_dates":"2014-10-13 13:35:51","user_lastlogintime":"1406102621","user_version":"1","user_isv2":"0","userstatus_usertype":"0","userstatus_package_id":"100001","userstatus_end_time":"NULL"},
+                {"user_email":"100percentc@gmail.com","user_company":"個人","user_dates":"2014-10-21 14:04:54","user_lastlogintime":"1413650769","user_version":"0","user_isv2":"1","userstatus_usertype":"0","userstatus_package_id":"100014","userstatus_end_time":"0"},
+                {"user_email":"1002025@gmail.com","user_company":"","user_dates":"2014-10-13 13:35:51","user_lastlogintime":"0","user_version":"0","user_isv2":"0","userstatus_usertype":"0","userstatus_package_id":"100014","userstatus_end_time":"NULL"},
+                {"user_email":"1000trez@gmail.com","user_company":"（仮称）CHEAPFRIEND","user_dates":"2014-10-13 13:35:51","user_lastlogintime":"1409492613","user_version":"0","user_isv2":"0","userstatus_usertype":"0","userstatus_package_id":"100014","userstatus_end_time":"NULL"},
+                {"user_email":"1000ten@gmail.com","user_company":"株式会社デザインフィル","user_dates":"2014-10-15 00:39:39","user_lastlogintime":"1413333579","user_version":"0","user_isv2":"0","userstatus_usertype":"0","userstatus_package_id":"100014","userstatus_end_time":"NULL"},
+                {"user_email":"10000loveandpeace@gmail.com","user_company":"個人","user_dates":"2014-10-13 13:35:51","user_lastlogintime":"0","user_version":"0","user_isv2":"0","userstatus_usertype":"0","userstatus_package_id":"100014","userstatus_end_time":"NULL"},
+                {"user_email":"1.infobiz@gmail.com","user_company":"","user_dates":"2014-10-31 13:02:46","user_lastlogintime":"0","user_version":"0","user_isv2":"1","userstatus_usertype":"0","userstatus_package_id":"100014","userstatus_end_time":"0"},
+                {"user_email":"1.9.rainwatar@gmail.com","user_company":"","user_dates":"2014-11-21 13:03:49","user_lastlogintime":"0","user_version":"0","user_isv2":"1","userstatus_usertype":"0","userstatus_package_id":"100014","userstatus_end_time":"0"},
+                {"user_email":"0da.hasegawa@gmail.com","user_company":"","user_dates":"2014-10-13 13:35:51","user_lastlogintime":"0","user_version":"0","user_isv2":"0","userstatus_usertype":"0","userstatus_package_id":"100014","userstatus_end_time":"NULL"},
+                {"user_email":"0a0a0a0a99@gmail.com","user_company":"","user_dates":"2014-10-13 13:35:51","user_lastlogintime":"1413150772","user_version":"0","user_isv2":"0","userstatus_usertype":"0","userstatus_package_id":"100014","userstatus_end_time":"0"},
+                {"user_email":"0930s.n0930@gmail.com","user_company":"","user_dates":"2014-10-13 13:35:51","user_lastlogintime":"0","user_version":"0","user_isv2":"0","userstatus_usertype":"0","userstatus_package_id":"100014","userstatus_end_time":"NULL"},
+                {"user_email":"0918sakai@gmail.com","user_company":"匿名","user_dates":"2014-10-21 14:04:56","user_lastlogintime":"1413870712","user_version":"0","user_isv2":"1","userstatus_usertype":"0","userstatus_package_id":"100014","userstatus_end_time":"0"},
+                {"user_email":"0814wawa@gmail.com","user_company":"","user_dates":"2014-10-13 13:35:51","user_lastlogintime":"0","user_version":"0","user_isv2":"0","userstatus_usertype":"0","userstatus_package_id":"100014","userstatus_end_time":"NULL"},
+                {"user_email":"07jman27@gmail.com","user_company":"朱集公社","user_dates":"2014-12-08 02:52:52","user_lastlogintime":"1418007172","user_version":"0","user_isv2":"1","userstatus_usertype":"0","userstatus_package_id":"100014","userstatus_end_time":"0"},
+                {"user_email":"06l1145@gmail.com","user_company":"","user_dates":"2014-11-10 10:12:49","user_lastlogintime":"1415614369","user_version":"0","user_isv2":"1","userstatus_usertype":"0","userstatus_package_id":"100014","userstatus_end_time":"0"},
+                {"user_email":"0518sakurako@gmail.com","user_company":"","user_dates":"2014-11-23 20:44:26","user_lastlogintime":"1416775466","user_version":"0","user_isv2":"0","userstatus_usertype":"0","userstatus_package_id":"100014","userstatus_end_time":"NULL"},
+                {"user_email":"0409juzo@gmail.com","user_company":"","user_dates":"2014-10-13 13:35:51","user_lastlogintime":"1408787759","user_version":"0","user_isv2":"0","userstatus_usertype":"0","userstatus_package_id":"100014","userstatus_end_time":"NULL"},
+                {"user_email":"023754023216ruisu@gmail.com","user_company":"","user_dates":"2014-12-08 02:06:37","user_lastlogintime":"1418004396","user_version":"0","user_isv2":"1","userstatus_usertype":"0","userstatus_package_id":"100014","userstatus_end_time":"0"},
+                {"user_email":" suu_08_02@yahoo.co.jp","user_company":"","user_dates":"2014-10-13 13:35:51","user_lastlogintime":"0","user_version":"0","user_isv2":"0","userstatus_usertype":"0","userstatus_package_id":"100014","userstatus_end_time":"NULL"},
+                {"user_email":" shinichiro.kitamikado.tm@gmail.com","user_company":"","user_dates":"2014-10-13 13:35:51","user_lastlogintime":"0","user_version":"0","user_isv2":"0","userstatus_usertype":"0","userstatus_package_id":"100014","userstatus_end_time":"NULL"},
+                {"user_email":" 	hikari_hikaru_feelsogood@yahoo.co.jp","user_company":"","user_dates":"2014-10-13 13:35:51","user_lastlogintime":"0","user_version":"0","user_isv2":"0","userstatus_usertype":"0","userstatus_package_id":"100014","userstatus_end_time":"NULL"}],
+            onPageChange: function (size, number) {
+            },
+            formatNoMatches: function(){
+                return '无符合条件的记录';
+            }
+        });
+        $(window).resize(function () {
+            $('#reportTable').bootstrapTable('resetView');
+        });
+    });
+</script>
+<!--<h3>时间范围选择</h3>
+<div class="ta_date" id="div_date1">
+    <span class="date_title" id="date1"></span>
+</div>
+
+<script type="text/javascript">
+    var dateRange1 = new pickerDateRange('date1', {
+        stopToday : false,
+        isTodayValid : true,
+        startDate: '2015-11-05',
+        endDate: '2015-11-06',
+        needCompare : false,
+        defaultText : ' 离开 ',
+        autoSubmit : false,
+        inputTrigger : 'input_trigger1',
+        theme : 'ta'
+    });
+</script>-->
+</body>
+</html>

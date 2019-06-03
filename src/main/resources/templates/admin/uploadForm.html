@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>欣欣二手车</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="/css/style.css" rel="stylesheet"/>
+    <link href="/js/layer/skin/layer.css" rel="stylesheet"/>
+    <style type="text/css">
+
+        .picStyle{
+            width: 250px;
+            height: 42px;
+            padding: 6px 12px;
+            font-size: 14px;
+            line-height: 1.42857143;
+            border-radius: 5px;
+        }
+
+        #breadcrumb {
+            list-style: none;
+            display: inline-block;
+        }
+        #breadcrumb .icon {
+            font-size: 14px;
+        }
+        #breadcrumb li {
+            float: left;
+        }
+        #breadcrumb li a {
+            color: #FFF;
+            display: block;
+            background: #3498db;
+            text-decoration: none;
+            position: relative;
+            height: 40px;
+            line-height: 40px;
+            padding: 0 10px 0 5px;
+            text-align: center;
+            margin-right: 23px;
+        }
+        #breadcrumb li:nth-child(even) a {
+            background-color: #2980b9;
+        }
+        #breadcrumb li:nth-child(even) a:before {
+            border-color: #2980b9;
+            border-left-color: transparent;
+        }
+        #breadcrumb li:nth-child(even) a:after {
+            border-left-color: #2980b9;
+        }
+        #breadcrumb li:first-child a {
+            padding-left: 15px;
+            -moz-border-radius: 4px 0 0 4px;
+            -webkit-border-radius: 4px;
+            border-radius: 4px 0 0 4px;
+        }
+        #breadcrumb li:first-child a:before {
+            border: none;
+        }
+        #breadcrumb li:last-child a {
+            padding-right: 15px;
+            -moz-border-radius: 0 4px 4px 0;
+            -webkit-border-radius: 0;
+            border-radius: 0 4px 4px 0;
+        }
+        #breadcrumb li:last-child a:after {
+            border: none;
+        }
+        #breadcrumb li a:before, #breadcrumb li a:after {
+            content: "";
+            position: absolute;
+            top: 0;
+            border: 0 solid #3498db;
+            border-width: 20px 10px;
+            width: 0;
+            height: 0;
+        }
+        #breadcrumb li a:before {
+            left: -20px;
+            border-left-color: transparent;
+        }
+        #breadcrumb li a:after {
+            left: 100%;
+            border-color: transparent;
+            border-left-color: #3498db;
+        }
+        #breadcrumb li a:hover {
+            background-color: #1abc9c;
+        }
+        #breadcrumb li a:hover:before {
+            border-color: #1abc9c;
+            border-left-color: transparent;
+        }
+        #breadcrumb li a:hover:after {
+            border-left-color: #1abc9c;
+        }
+        #breadcrumb li a:active {
+            background-color: #16a085;
+        }
+        #breadcrumb li a:active:before {
+            border-color: #16a085;
+            border-left-color: transparent;
+        }
+        #breadcrumb li a:active:after {
+            border-left-color: #16a085;
+        }
+
+        img{border:none;}
+        *{font-family:'微软雅黑';}
+        dl,dt,dd{display:block;margin:0;}
+        a{text-decoration:none;}
+        /*left*/
+        .leftsidebar_box{width:160px;height: available; overflow:visible !important;position:fixed;height:100% !important;background-color:#3992d0;}
+        .line{height:2px;width:100%;background-image:url(/images/left/line_bg.png);background-repeat:repeat-x;}
+        .leftsidebar_box dt{padding-left:40px;padding-right:10px;background-repeat:no-repeat;background-position:10px center;color:#f5f5f5;font-size:14px;position:relative;line-height:48px;cursor:pointer;}
+        .leftsidebar_box dd{background-color:#317eb4;padding-left:40px;}
+        .leftsidebar_box dd a{color:#f5f5f5;line-height:20px;}
+        .leftsidebar_box dt img{position:absolute;right:10px;top:20px;}
+        .leftsidebar_box dl dd:last-child{padding-bottom:10px;}
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top" style="background-color:#C0E8E8">
+    <div class="container">
+        <div class="navbar-header">
+            <a href="#" class="navbar-brand logo"></a>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="list-group-item-info" style="background-color: #3992d0;margin-left: -115px;width: 160px;"><a href="#" style="color: white;font-size: 14px;font-weight: bold;">欣欣二手车后台管理</a></li>
+        </ul>
+        <div class="collapse navbar-collapse" id="navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li style="margin-right: 100px"><a href="/admin/theMainPage"><span class="glyphicon glyphicon-home"></span>首页</a></li>
+                <li><button class="btn btn-info" style="margin-top: 9px; margin-right: 7px" th:if="${session.currentAdmin!=null}"
+                            th:text="${session.currentAdmin.getAdminname()}"></button></li>
+                <li><button class="btn btn-info" style="margin-top: 9px;" th:if="${session.currentAdmin!=null}"><a href="/admin/quit">退出登录</a></button> </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div style="margin-top: 50px;">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="leftsidebar_box">
+                <div class="line"></div>
+                <dl class="system_log">
+                    <dt onClick="changeImage()" class="active" style="margin-left: -15px;"><span class="glyphicon glyphicon-user" style="margin-right: 8px;"></span>用户管理<img src="/images/left/select_xl01.png"></dt>
+                    <dd class="first_dd"><a href="/admin/findAllUserByPage">查看用户</a></dd>
+                    <dd><a th:href="@{'/admin/findUserRequestsByPage/'+${session.currentAdmin.getAdminid()}}">查看卖家请求</a></dd>
+                    <dd><a th:href="@{'/admin/findUserWorkingRequestsByPage/'+${session.currentAdmin.getAdminid()}}">查看办理中的卖家请求</a></dd>
+                    <dd><a th:href="@{'/admin/findUserDoneRequestsByPage/'+${session.currentAdmin.getAdminid()}}">查看卖家归档库</a></dd>
+
+                    <dd><a href="/admin/findBuyerRequestsByPage">查看买家请求</a></dd>
+                </dl>
+
+                <dl class="custom">
+                    <dt onClick="changeImage()" style="margin-left: -15px;"><span class="glyphicon glyphicon-screenshot" style="margin-right: 8px;"></span>车辆管理<img src="/images/left/select_xl01.png"></dt>
+                    <dd class="first_dd"><a href="/admin/findAllCarByBrand">系统已维护品牌</a></dd>
+                    <dd class="first_dd"><a href="/admin/findStock">平台库存车辆</a></dd>
+                    <dd class="first_dd"><a href="#"></a></dd>
+                </dl>
+
+                <dl class="source">
+                    <dt style="margin-left: -15px;"><span class="glyphicon glyphicon-sunglasses" style="margin-right: 8px;"></span>订单管理<img src="/images/left/select_xl01.png"></dt>
+                    <dd class="active"><a href="/admin/findInputOrderPage">入库订单</a></dd>
+                </dl>
+
+                <dl class="channel">
+                    <dt style="margin-left: -15px;"><span class="glyphicon glyphicon-eye-open" style="margin-right: 8px;"></span>汽车百科管理<img src="/images/left/select_xl01.png"></dt>
+                    <dd><a href="/admin/lookTip">查看库存百科</a></dd>
+                </dl>
+            </div>
+        </div>
+        <div style="margin-left: 165px;">
+            <div class="container" style="margin-top: 20px;">
+                <ul id="breadcrumb" style="margin-left: -50px;">
+                    <li><a href="#"><span class="glyphicon glyphicon-screenshot"></span>订单管理</a></li>
+                    <li><a href="#"></span>上传待售汽车信息</a></li>
+                </ul>
+                <div class="container-fluid">
+                    <div class="row-fluid">
+                        <div class="span8">
+                            <div style="background-color: #ebebeb;">
+                                <p class="lead">
+                                    汽车信息：<strong th:text="${inputOrder.getAppointCheck().getEstimate().getCarbrand()}+'|'
+                                           +${inputOrder.getAppointCheck().getEstimate().getCarseries()}+'|'
+                                           +${inputOrder.getAppointCheck().getEstimate().getCarmodel()}"></strong><br>
+                                    上牌时间：<strong th:text="${inputOrder.getAppointCheck().getEstimate().getRegdate()}"></strong><br>
+                                    上牌城市：<strong th:text="${inputOrder.getAppointCheck().getEstimate().getRegcity()}"></strong><br>
+                                    卖车城市：<strong th:text="${inputOrder.getAppointCheck().getEstimate().getOwnercity()}"></strong><br>
+                                    行驶里程：<strong th:text="${inputOrder.getAppointCheck().getEstimate().getDrivemiles()}+'万公里'"></strong><br>
+                                    入库价格：<strong th:text="${inputOrder.getInputprice()}+'万元'"></strong>
+                                </p>
+                            </div>
+                            <div>
+                                <div style="display: block;" id="firstForm">
+                                    <form class="form-horizontal" >
+                                        <div class="form-group" style="margin-left: 5px;">
+                                            <label class="control-label" >售卖价格(万元)：</label>
+                                            <div class="controls">
+                                                <input class="form-control" placeholder="售卖价格(万元)：" style="width: 250px;height: 35px;border-radius: 5px;" type="text" name="waitsellprice" id="waitsellprice"/>
+                                            </div>
+                                            <input type="hidden" id="carbrand" name="carbrand" th:value="${inputOrder.getAppointCheck().getEstimate().getCarbrand()}">
+                                            <input type="hidden" id="carseries" name="carseries" th:value="${inputOrder.getAppointCheck().getEstimate().getCarseries()}">
+                                            <input type="hidden" id="carmodel" name="carmodel" th:value="${inputOrder.getAppointCheck().getEstimate().getCarmodel()}">
+                                            <input type="hidden" id="brandid" name="brandid" th:value="${brandid}">
+                                            <input type="hidden" id="seriesid" name="seriesid" th:value="${seriesid}">
+                                            <input type="hidden" id="modelid" name="modelid" th:value="${modelid}">
+                                            <input type="hidden" id="sellid" name="sellid" th:value="${sellid}">
+                                            <input type="hidden" id="regdate" name="regdate" th:value="${inputOrder.getAppointCheck().getEstimate().getRegdate()}">
+                                            <input type="hidden" id="regcity" name="regcity" th:value="${inputOrder.getAppointCheck().getEstimate().getRegcity()}">
+                                            <input type="hidden" id="ownercity" name="ownercity" th:value="${inputOrder.getAppointCheck().getEstimate().getOwnercity()}">
+                                            <input type="hidden" id="drivemiles" name="drivemiles" th:value="${inputOrder.getAppointCheck().getEstimate().getDrivemiles()}">
+                                            <input type="hidden" id="inputorderid" name="inputorderid" th:value="${inputOrder.getInputorderid()}">
+                                        </div>
+                                        <div class="form-group" style="margin-left: 10px;">
+                                            <div class="controls">
+                                                <a class="btn btn-info" onclick="uploadWaitSell()">上传待售信息</a>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+
+
+                                <div id="upPicForm" style="display: none;padding: 3px;background-color: #eee;">
+                                    <form action="/admin/savePic">
+                                        <div>
+                                            <input type="hidden" id="wscid" name="wscid" placeholder="待售汽车ID">
+                                            <div class="control-group" id="imageUpload">
+                                                <label class="control-label">选择汽车图片</label>
+                                                <div class="controls">
+                                                    <input type="file" class="picStyle" id="file" name="carPic" placeholder="选择汽车图片" multiple>
+                                                </div>
+                                                <div id="imgShow0">
+                                                </div>
+                                            </div>
+                                            <br>
+                                            <div class="form-group" style="margin-left: 10px;">
+                                                <div class="controls">
+                                                    <a class="btn btn-danger" onclick="deleteImg()">删除最后一张图片</a>
+                                                    <button class="btn btn-info">保存汽车图片至数据库</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <hr style="border: #1abc9c solid 1px;">
+                        <div class="span4" style="background-color: #c4e3f3">
+                            <dl>
+                                <dt style="font-size: 19px;color: red">上传信息须知:</dt>
+                                <dd style="font-size: 15px;color: red">每一笔待售汽车信息的上传都要严格把关</dd>
+                                <br>
+                                <br>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/layer/layer.js"></script>
+<script src="/js/upload/js/jquery.iframe-transport.js"></script>
+<script src="/js/upload/js/vendor/jquery.ui.widget.js" ></script>
+<script src="/js/upload/js/jquery.fileupload.js"></script>
+<script type="text/javascript">
+    var num=0;
+    $(document).ready(function () {
+            $("#file").fileupload({//js的文件上传方法
+                url:"/upload/carPic",//方法链接
+                dataType: 'text',
+                done: function (e,data) {
+                    var html="<img src='";
+                    html+=data.result;
+                    html+="'/>";
+                    $("#imgShow"+num).append(html);//把图片追加到imgShow的div当中
+                    $("#imgShow"+num).append("<input type='hidden' name='img' value='"+data.result+"'>");
+                    num++;
+                    $("#imageUpload").append("<div id='imgShow"+num+"'>");
+                }
+            });
+        }
+    );
+    function deleteImg(){
+        $("#imgShow"+num).remove();
+        num--;
+        $("#imgShow"+num).children().remove();
+    }
+    function uploadWaitSell() {
+      if($('#waitsellprice').val()==""){
+          alert('请填写售卖价格');
+          return;
+      }
+      var waitsellprice= $('#waitsellprice').val();
+      var carbrand= $('#carbrand').val();
+      var carseries= $('#carseries').val();
+      var carmodel= $('#carmodel').val();
+      var brandid= $('#brandid').val();
+      var seriesid= $('#seriesid').val();
+      var modelid= $('#modelid').val();
+      var sellid=$('#sellid').val();
+      var regdate= $('#regdate').val();
+      var regcity= $('#regcity').val();
+      var ownercity= $('#ownercity').val();
+      var drivemiles= $('#drivemiles').val();
+      var inputorderid= $('#inputorderid').val();
+      $.ajax({
+          type: "post",
+          url: "/admin/startUploadCarInfo",
+          data:{
+              "waitsellprice":waitsellprice,"carbrand":carbrand,"carseries":carseries,
+              "carmodel":carmodel,"brandid":brandid,"seriesid":seriesid,"sellid":sellid,
+              "modelid":modelid,"regdate":regdate,"regcity":regcity,
+              "ownercity":ownercity,"drivemiles":drivemiles,"inputorderid":inputorderid
+          },
+          success: function (d) {
+              if (d!=null) {
+                  $('#wscid').val(d);
+                  $('#upPicForm').css('display','block');
+                  alert('上传待售汽车基本信息成功！请上传汽车图片');
+              }
+              else {
+                  alert('生成订单异常!');
+              }
+          }
+      });
+  }
+
+    $(function () {
+        //设置文字垂直居中，谷歌浏览器加载图片的顺序问题，导致高度无法获取
+        $('window').load(function () {
+            $('.text').eq(0).css('margin-top',($('.auto').eq(0).height()-$('.text').eq(0).height())/2+'px');
+        });
+
+        $(window).resize(function () {
+            $('.text').eq(0).css('margin-top',($('.auto').eq(0).height()-$('.text').eq(0).height())/2+'px');
+        });
+
+        $('window').load(function () {
+            $('.text').eq(1).css('margin-top',($('.auto').eq(1).height()-$('.text').eq(1).height())/2+'px');
+        });
+        $(window).resize(function () {
+            $('.text').eq(1).css('margin-top',($('.auto').eq(1).height()-$('.text').eq(1).height())/2+'px');
+        });
+    });
+    $(".leftsidebar_box dt").css({"background-color":"#3992d0"});
+    $(".leftsidebar_box dt img").attr("src","/images/left/select_xl01.png");
+    $(function(){
+        $(".leftsidebar_box dd").hide();
+        $(".leftsidebar_box dt").click(function(){
+            $(".leftsidebar_box dt").css({"background-color":"#3992d0"})
+            $(this).css({"background-color": "#317eb4"});
+            $(this).parent().find('dd').removeClass("menu_chioce");
+            $(".leftsidebar_box dt img").attr("src","/images/left/select_xl01.png");
+            $(this).parent().find('img').attr("src","/images/left/select_xl.png");
+            $(".menu_chioce").slideUp();
+            $(this).parent().find('dd').slideToggle();
+            $(this).parent().find('dd').addClass("menu_chioce");
+        });
+    });
+
+</script>
+</body>
+</html>

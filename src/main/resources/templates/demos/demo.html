@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no"/>
+    <!--上面这一行便于移动端开发使用，使显示更加清晰，以后编程都加上这一行-->
+    <title>实战</title>
+    <link href="../../static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../static/css/style.css" rel="stylesheet">
+
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a href="#" class="navbar-brand logo"><img src="../../static/images/logo6.jpg" alt="二手车平台"></a>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+<!--        <ul class="nav navbar-nav">
+            <li class="list-group-item-success"><a href="#">风林二手车平台</a></li>
+        </ul>-->
+        <div class="collapse navbar-collapse" id="navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="active"><a href="buyCar.html"><span class="glyphicon glyphicon-home"></span> 我要买车</a></li>
+                <li><a href="sellCar.html"><span class="glyphicon glyphicon-list"></span> 我要卖车</a></li>
+                <li><a href="talkRoom.html"><span class="glyphicon glyphicon-fire"></span> 车友交流</a></li>
+                <li><a href="personInfo.html"><span class="glyphicon glyphicon-question-sign"></span> 个人信息</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="myCarousel" class="carousel slide">
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+        <div class="item active" style="background: #223240">
+            <img src="../../static/images/lb1.jpg" alt="第一张">
+        </div>
+        <div class="item" style="background: gray">
+            <img src="../../static/images/lb2.jpg" alt="第二张">
+        </div>
+        <div class="item" style="background:cadetblue">
+            <img src="../../static/images/lb3.png" alt="第三张">
+        </div>
+    </div>
+<!--    <a href="#myCarousel" data-slide="prev" class="carousel-control left">&lsaquo;</a>
+    <a href="#myCarousel" data-slide="next" class="carousel-control right">&rsaquo;</a>-->
+    <!--上下两种形式皆可以实现轮播插件定位的功能，下面方法更为简洁高效-->
+    <a href="#myCarousel" data-slide="prev" class="carousel-control left">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+    </a>
+    <a href="#myCarousel" data-slide="next" class="carousel-control right">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+    </a>
+</div>
+
+<div class="tab1">
+    <div class="container">
+        <h2 class="tab-h2">为何选择风林二手车平台</h2>
+        <p class="tab-p">259项专业检测!完备的检测流程!专业的评估师团队!</p>
+        <div class="row">
+            <div class="col-md-6 col">
+                <div class="media">
+                    <div class="media-left">
+                        <a href="#"><img src="../../static/images/tool2.jpg" class="media-object" alt=""></a>
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading">风林二手车是谁?</h4>
+                        <p class="text-muted">平均每一分钟就成交一辆。</p>
+                        <p>风林二手车撮合个人直接卖给个人，没有中间商赚差价。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col">
+                <div class="media">
+                    <div class="media-left">
+                        <a href="#"><img src="../../static/images/tool1.jpg" class="media-object" alt=""></a>
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading">风林二手车是谁?</h4>
+                        <p class="text-muted">平均每一分钟就成交一辆。</p>
+                        <p>风林二手车撮合个人直接卖给个人，没有中间商赚差价。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col">
+                <div class="media">
+                    <div class="media-left">
+                        <a href="#"><img src="../../static/images/tool3.jpg" class="media-object" alt=""></a>
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading">风林二手车是谁?</h4>
+                        <p class="text-muted">平均每一分钟就成交一辆。</p>
+                        <p>风林二手车撮合个人直接卖给个人，没有中间商赚差价。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col">
+                <div class="media">
+                    <div class="media-left">
+                        <a href="#"><img src="../../static/images/tool4.jpg" class="media-object" alt=""></a>
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading">风林二手车是谁?</h4>
+                        <p class="text-muted">平均每一分钟就成交一辆。</p>
+                        <p>风林二手车撮合个人直接卖给个人，没有中间商赚差价。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="tab2">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 tab2-img">
+                <img src="../../static/images/cooper.jpg" class="auto img-responsive center-block" alt="">
+            </div>
+            <div class="text col-md-6 col-sm-6 tab2-text">
+                <h3>合作银行</h3>
+                <p>完美的金融理财服务，让您在购车的活动中实现利益更大化</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="tab3">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6">
+                <img src="../../static/images/intro.jpg" class="auto img-responsive center-block" alt="">
+            </div>
+            <div class="text col-md-6 col-sm-6">
+                <h3>购车流程演示</h3>
+                <p>一条龙服务，让您在未来的路上尽情驰骋</p>
+            </div>
+        </div>
+    </div>
+</div>
+<footer id="footer">
+    <div class="container">
+        <p>© 2018 All Rights Reserved.林雪瑞设计 </p>
+        <p>鲁ICP备160100号,地址：山东省烟台市芝罘区红旗中路186号,邮编：264001</p>
+    </div>
+</footer>
+
+<script src="../../static/js/jquery.min.js"></script>
+<script src="../../static/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        //轮播自动播放
+        $('#myCarousel').carousel({
+           //自动4秒播放
+           interval:3000,
+        });
+
+        //设置垂直居中
+/*       $('.carousel-control').css('line-height',$('.carousel-inner img').height()+'px');
+       $(window).resize(function () {
+           var $height=$('.carousel-inner img').eq(0).height() ||
+                       $('.carousel-inner img').eq(1).height() ||
+                       $('.carousel-inner img').eq(2).height();
+           $('.carousel-control').css('line-height',$height+'px')
+       });*/
+
+        //设置文字垂直居中，谷歌浏览器加载图片的顺序问题，导致高度无法获取
+        $('window').load(function () {
+            $('.text').eq(0).css('margin-top',($('.auto').eq(0).height()-$('.text').eq(0).height())/2+'px');
+        });
+
+        $(window).resize(function () {
+            $('.text').eq(0).css('margin-top',($('.auto').eq(0).height()-$('.text').eq(0).height())/2+'px');
+        });
+
+        $('window').load(function () {
+            $('.text').eq(1).css('margin-top',($('.auto').eq(1).height()-$('.text').eq(1).height())/2+'px');
+        });
+        $(window).resize(function () {
+            $('.text').eq(1).css('margin-top',($('.auto').eq(1).height()-$('.text').eq(1).height())/2+'px');
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"><!--thymeleaf的头文件-->
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no"/>
+    <!--上面这一行便于移动端开发使用，使显示更加清晰，以后编程都加上这一行-->
+    <title>欣欣二手车</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="/css/style.css" rel="stylesheet"/>
+    <style type="text/css">
+
+        img{border:none;}
+        *{font-family:'微软雅黑';}
+        dl,dt,dd{display:block;margin:0;}
+        a{text-decoration:none;}
+        /*left*/
+        .leftsidebar_box{width:160px;height: available; overflow:visible !important;position:fixed;height:100% !important;background-color:#3992d0;}
+        .line{height:2px;width:100%;background-image:url(/images/left/line_bg.png);background-repeat:repeat-x;}
+        .leftsidebar_box dt{padding-left:40px;padding-right:10px;background-repeat:no-repeat;background-position:10px center;color:#f5f5f5;font-size:14px;position:relative;line-height:48px;cursor:pointer;}
+        .leftsidebar_box dd{background-color:#317eb4;padding-left:40px;}
+        .leftsidebar_box dd a{color:#f5f5f5;line-height:20px;}
+        .leftsidebar_box dt img{position:absolute;right:10px;top:20px;}
+        .leftsidebar_box dl dd:last-child{padding-bottom:10px;}
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top" style="background-color:#C0E8E8">
+    <div class="container">
+        <div class="navbar-header">
+            <a href="#" class="navbar-brand logo"></a>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="list-group-item-info" style="background-color: #3992d0;margin-left: -113px;width: 160px;"><a href="#" style="color: white;font-size: 14px;font-weight: bold;">欣欣二手车后台管理</a></li>
+        </ul>
+        <div class="collapse navbar-collapse" id="navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li style="margin-right: 100px"><a href="/admin/theMainPage"><span class="glyphicon glyphicon-home"></span>首页</a></li>
+                <li><button class="btn btn-info" style="margin-top: 9px; margin-right: 7px" th:if="${session.currentAdmin!=null}"
+                            th:text="${session.currentAdmin.getAdminname()}"></button></li>
+                <li><button class="btn btn-info" style="margin-top: 9px;" th:if="${session.currentAdmin!=null}"><a href="/admin/quit">退出登录</a></button> </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="modal fade" id="editModal" tabindex="-1">
+    <!-- 窗口声明 -->
+    <div class="modal-dialog">
+        <!-- 内容声明 -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close" data-dismiss="modal"><span>&times;</span></button>
+                <h4 class="modal-title">编辑个人信息</h4>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="row">
+                        <form action="/admin/updateAdmin" method="post">
+                            <div class="form-group">
+                                <label>管理员Id</label>
+                                <input type="text" class="form-control"  id="adminid" name="adminid"/>
+                            </div>
+                            <div class="form-group">
+                                <label>管理员名称</label>
+                                <input type="text" class="form-control" id="adminname" name="adminname" placeholder="新的昵称"/>
+                            </div>
+                            <div class="form-group">
+                                <label>密码</label>
+                                <input type="text" class="form-control" id="adminpasswd" name="passwd" placeholder="新的密码"/>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">确认</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <p>请谨慎修改!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div style="margin-top: 50px;">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="leftsidebar_box">
+                <div class="line"></div>
+                <dl class="system_log">
+                    <dt onClick="changeImage()" class="active" style="margin-left: -15px;"><span class="glyphicon glyphicon-user" style="margin-right: 8px;"></span>用户管理<img src="/images/left/select_xl01.png"></dt>
+                    <dd class="first_dd"><a href="/admin/findAllUserByPage">查看用户</a></dd>
+                    <dd><a th:href="@{'/admin/findUserRequestsByPage/'+${session.currentAdmin.getAdminid()}}">查看卖家请求</a></dd>
+                    <dd><a th:href="@{'/admin/findUserWorkingRequestsByPage/'+${session.currentAdmin.getAdminid()}}">查看办理中的卖家请求</a></dd>
+                    <dd><a th:href="@{'/admin/findUserDoneRequestsByPage/'+${session.currentAdmin.getAdminid()}}">查看卖家归档库</a></dd>
+
+                    <dd><a href="/admin/findBuyerRequestsByPage">查看买家请求</a></dd>
+                </dl>
+
+                <dl class="custom">
+                    <dt onClick="changeImage()" style="margin-left: -15px;"><span class="glyphicon glyphicon-screenshot" style="margin-right: 8px;"></span>车辆管理<img src="/images/left/select_xl01.png"></dt>
+                    <dd class="first_dd"><a href="/admin/findAllCarByBrand">系统已维护品牌</a></dd>
+                    <dd class="first_dd"><a href="/admin/findStock">平台库存车辆</a></dd>
+                    <dd class="first_dd"><a href="#"></a></dd>
+                </dl>
+
+                <dl class="source">
+                    <dt style="margin-left: -15px;"><span class="glyphicon glyphicon-sunglasses" style="margin-right: 8px;"></span>订单管理<img src="/images/left/select_xl01.png"></dt>
+                    <dd class="active"><a href="/admin/findInputOrderPage">入库订单</a></dd>
+
+                </dl>
+
+                <dl class="channel">
+                    <dt style="margin-left: -15px;"><span class="glyphicon glyphicon-eye-open" style="margin-right: 8px;"></span>汽车百科管理<img src="/images/left/select_xl01.png"></dt>
+                    <dd><a href="/admin/lookTip">查看库存百科</a></dd>
+                </dl>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="col-md-4">
+                <div>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                </div>
+                <p class="lead">欢迎来到查看估价记录界面</p>
+            </div>
+            <div class="col-md-8">
+                <table class="table table-hover table-bordered table-striped" style="margin-top: 10px">
+                    <thead>
+                    <tr>
+                        <th>估价Id</th>
+                        <th>预约时间</th>
+                        <th>预约地点</th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="list:${appointCheckList}">
+                        <td th:text="${list.appointid}"></td>
+                        <td th:text="${list.appointdate}"></td>
+                        <td th:text="${list.appointplace}"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+    $('#loginbtn').on('click',function () {
+        $('#myModal').modal('show');
+    });
+    $('#registerbtn').on('click',function () {
+        $('#myModa2').modal('show');
+    });
+
+    $(function () {
+        //轮播自动播放
+        $('#myCarousel').carousel({
+            //自动3秒播放
+            interval:3000,
+        });
+
+        //设置垂直居中
+        /*       $('.carousel-control').css('line-height',$('.carousel-inner img').height()+'px');
+               $(window).resize(function () {
+                   var $height=$('.carousel-inner img').eq(0).height() ||
+                               $('.carousel-inner img').eq(1).height() ||
+                               $('.carousel-inner img').eq(2).height();
+                   $('.carousel-control').css('line-height',$height+'px')
+               });*/
+
+        //设置文字垂直居中，谷歌浏览器加载图片的顺序问题，导致高度无法获取
+        $('window').load(function () {
+            $('.text').eq(0).css('margin-top',($('.auto').eq(0).height()-$('.text').eq(0).height())/2+'px');
+        });
+
+        $(window).resize(function () {
+            $('.text').eq(0).css('margin-top',($('.auto').eq(0).height()-$('.text').eq(0).height())/2+'px');
+        });
+
+        $('window').load(function () {
+            $('.text').eq(1).css('margin-top',($('.auto').eq(1).height()-$('.text').eq(1).height())/2+'px');
+        });
+        $(window).resize(function () {
+            $('.text').eq(1).css('margin-top',($('.auto').eq(1).height()-$('.text').eq(1).height())/2+'px');
+        });
+    });
+    function editInfo(obj) {
+        $('#adminid').val(obj);
+        $('#editModal').modal('show');
+    }
+
+    $(".leftsidebar_box dt").css({"background-color":"#3992d0"});
+    $(".leftsidebar_box dt img").attr("src","/images/left/select_xl01.png");
+    $(function(){
+        $(".leftsidebar_box dd").hide();
+        $(".leftsidebar_box dt").click(function(){
+            $(".leftsidebar_box dt").css({"background-color":"#3992d0"})
+            $(this).css({"background-color": "#317eb4"});
+            $(this).parent().find('dd').removeClass("menu_chioce");
+            $(".leftsidebar_box dt img").attr("src","/images/left/select_xl01.png");
+            $(this).parent().find('img').attr("src","/images/left/select_xl.png");
+            $(".menu_chioce").slideUp();
+            $(this).parent().find('dd').slideToggle();
+            $(this).parent().find('dd').addClass("menu_chioce");
+        });
+    });
+</script>
+</body>
+</html>

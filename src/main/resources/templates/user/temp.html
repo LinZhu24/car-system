@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"><!--thymeleaf的头文件-->
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no"/>
+    <!--上面这一行便于移动端开发使用，使显示更加清晰，以后编程都加上这一行-->
+    <title>欣欣中转站页面</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="/css/style.css" rel="stylesheet"/>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a href="#" class="navbar-brand logo"><img src="/images/logo5.jpg" alt="欣欣二手车平台"/></a>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="list-group-item-info" style="background-color: #f8f8f8;font-size: 17px;line-height: 10px;"><a href="#" style="color: lightseagreen;">欣欣二手车交易平台</a></li>
+        </ul>
+        <div class="collapse navbar-collapse" id="navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="active"><a href="/user/theMainPage"><span class="glyphicon glyphicon-home"></span>首页</a></li>
+                <li><a href="/user/buyCar"><span class="glyphicon glyphicon-shopping-cart"></span> 买车</a></li>
+                <li><a href="/user/sellCar"><span class="glyphicon glyphicon-heart-empty"></span> 卖车</a></li>
+                <li><a href="/user/exper2"><span class="glyphicon glyphicon-fire"></span>汽车百科</a></li>
+                <li><a href="/user/personCenter"><span class="glyphicon glyphicon-tint"></span> 个人中心</a></li>
+                <li ><button class="btn btn-info" style="margin-top: 9px; margin-right: 7px" th:if="${session.currentUser==null}"><span class="glyphicon glyphicon-user"></span><a href="/user/info" style="text-decoration: none;">登录</a></button></li>
+                <li><button class="btn btn-info" style="margin-top: 9px;" th:if="${session.currentUser==null}"><span class="glyphicon glyphicon-plus"></span><a href="/user/temp" style="text-decoration: none;">注册</a></button></li>
+                <!--<li ><button class="btn btn-info" style="margin-top: 9px; margin-right: 7px" href="#" id="loginbtn" th:if="${session.currentUser==null}"><span class="glyphicon glyphicon-user"></span>登录</button></li>
+                <li><button class="btn btn-info" style="margin-top: 9px;" href="#"  id="registerbtn" th:if="${session.currentUser==null}"><span class="glyphicon glyphicon-plus"></span>注册</button></li>-->
+                <li><button class="btn btn-info" style="margin-top: 9px; margin-right: 7px" th:if="${session.currentUser!=null}"
+                            th:text="${session.currentUser.getPhone()}"></button></li>
+                <li><button class="btn btn-info" style="margin-top: 9px;" th:if="${session.currentUser!=null}"><a href="/user/quit">退出登录</a></button> </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div style="margin-top: 50px;">
+    <table class="table table-hover table-bordered table-striped" style="margin-top: 10px">
+        <thead>
+            <tr>
+                <th>预约Id</th>
+                <th>预约检车地点</th>
+                <th>预约时间</th>
+                <th>服务人员姓名</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td th:text="${appointCheck.appointid}"></td>
+                <td th:text="${appointCheck.appointplace}"></td>
+                <td th:text="${appointCheck.appointdate}"></td>
+                <td th:text="${appointCheck.getAdmin().getAdminname()}"></td>
+            </tr>
+        </tbody>
+    </table>
+    <blockquote>您的预约检车申请已经发送至工作人员，届时会有工作人员与您联系，请保持电话通畅。</blockquote>
+</div>
+<footer id="footer">
+    <div class="container">
+        <p>© 2018 All Rights Reserved.林雪瑞设计 </p>
+        <p>鲁ICP备160100号,地址：山东省烟台市芝罘区红旗中路186号,邮编：264001</p>
+    </div>
+</footer>
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+</body>
+</html>

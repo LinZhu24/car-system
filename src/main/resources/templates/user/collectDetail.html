@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>欣欣二手车</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="/css/style.css" rel="stylesheet"/>
+    <link href="/js/layer/skin/layer.css" rel="stylesheet"/>
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div>
+            <p class="lead" th:text="${waitSellCar.getCarbrand()}+'  '+${waitSellCar.getCarseries()}+'  '+${waitSellCar.getCarmodel()}"></p>
+            <p style="font-size: 20px;color: black;" th:text="'变速箱类型:'+${carDetail.gearboxtype}+'变速箱:'+${carDetail.gearbox}"></p>
+            <p style="font-size: 20px;color: black;" th:text="'长度(mm):'+${carDetail.length}+'宽度(mm):'+${carDetail.width}"></p>
+            <p style="font-size: 20px;color: black;" th:text="'高度(mm):'+${carDetail.height}+'轴距(mm):'+${carDetail.wheelbase}"></p>
+        </div>
+        <div th:each="img:${carPicList}" style="padding: 3px; width: 450px;height: 370px;">
+            <div style="width: 300px;height: 300px; padding: 10px;">
+                <img class="img-polaroid"  th:src="${img.path}" width="450px" height="300px"/><br>
+            </div>
+        </div>
+        <br>
+    </div>
+</div>
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/layer/layer.js"></script>
+
+<script type="text/javascript">
+  /*  /!*
+    *异步生成订单操作
+    * *!/
+    var appointid=$('#orderbtn').val();
+    $('#orderbtn').on('click',function () {
+       $.ajax({
+           url: "/admin/orderMaker",
+           data: {"appointid":appointid},
+           dataType: 'text',
+           success: function (data) {
+               alert(data);
+           },
+           error: function (data) {
+               alert("订单生成失败");
+           }
+       })
+    });*/
+  function saveOrder() {
+      if($('#inputprice').val()==""){
+          alert('请填写入库价格');
+          return;
+      }
+      var inputprice= $('#inputprice').val();
+      /*var dealdate=$('#dealdate').val();*/
+      var appointid=$('#appointid').val();
+      $.ajax({
+          type: "post",
+          url: "/admin/saveOrder",
+          data:{
+              "inputprice":inputprice,
+              "appointid":appointid,
+          },
+          success: function (d) {
+              if (d == "success") {
+                  alert('生成订单成功！');//保存成功提示
+                  window.parent.location.reload();
+                  closeLayer();//关闭layer窗体
+              }
+              if (d == "error") {
+                  alert('生成订单异常!');
+              }
+          }
+      });
+  }
+  function closeLayer() {
+      var index = parent.layer.getFrameIndex(window.name);
+      parent.layer.close(index);
+  }
+
+    $(function () {
+        //设置文字垂直居中，谷歌浏览器加载图片的顺序问题，导致高度无法获取
+        $('window').load(function () {
+            $('.text').eq(0).css('margin-top',($('.auto').eq(0).height()-$('.text').eq(0).height())/2+'px');
+        });
+
+        $(window).resize(function () {
+            $('.text').eq(0).css('margin-top',($('.auto').eq(0).height()-$('.text').eq(0).height())/2+'px');
+        });
+
+        $('window').load(function () {
+            $('.text').eq(1).css('margin-top',($('.auto').eq(1).height()-$('.text').eq(1).height())/2+'px');
+        });
+        $(window).resize(function () {
+            $('.text').eq(1).css('margin-top',($('.auto').eq(1).height()-$('.text').eq(1).height())/2+'px');
+        });
+    });
+    $(".leftsidebar_box dt").css({"background-color":"#3992d0"});
+    $(".leftsidebar_box dt img").attr("src","/images/left/select_xl01.png");
+    $(function(){
+        $(".leftsidebar_box dd").hide();
+        $(".leftsidebar_box dt").click(function(){
+            $(".leftsidebar_box dt").css({"background-color":"#3992d0"})
+            $(this).css({"background-color": "#317eb4"});
+            $(this).parent().find('dd').removeClass("menu_chioce");
+            $(".leftsidebar_box dt img").attr("src","/images/left/select_xl01.png");
+            $(this).parent().find('img').attr("src","/images/left/select_xl.png");
+            $(".menu_chioce").slideUp();
+            $(this).parent().find('dd').slideToggle();
+            $(this).parent().find('dd').addClass("menu_chioce");
+        });
+    });
+
+    $('#returndoc').one('click',function(){
+        var id=document.getElementById('returndoc').value;
+        $.get("/admin/insertrequest",{id:id},function (data) {
+           if(data=="yes"){
+               alert("归档成功");
+           }else{
+               alert("归档失败");
+           }
+        })
+        $('#returndoc').style.backgroundColor='green';
+    })
+    $('#working').one('click',function(){
+        var id=$('#working').val();
+        $.get("/admin/addWorkingList",{id:id},function (data) {
+            if(data=="yes"){
+                alert("已添加至办理队列");
+            }else{
+                alert("添加失败");
+            }
+        })
+        $('#returndoc').style.backgroundColor='green';
+    })
+</script>
+</body>
+</html>

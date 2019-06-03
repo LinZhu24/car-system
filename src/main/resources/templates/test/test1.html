@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"><!--thymeleaf的头文件-->
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>欣欣实验页面</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="/css/style.css" rel="stylesheet"/>
+</head>
+<body th:inline="text">
+<div style="margin-left: 120px;">
+
+    <div style="margin-top: 10px;">
+        <div class="container">
+            <center>
+                <form class="form-inline" id="actionForm" action="/test/findAllCar" method="post">
+                    <input type="hidden"  name="page" id="pageNo" />
+                    &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+                    <div class="form-group">
+                        <label class="col-md-4 control-label col-md-offset-2" style="padding-top: 5px">汽车品牌</label>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" placeholder="汽车品牌" name="brandname" th:value="${carbrand}"/>
+                        </div>
+                    </div>
+                    <button class="btn btn-info btn-group-lg col-md-offset-3" >查询汽车</button>
+                </form>
+                <p class="lead">每页[[${page.size}]]条，&nbsp;共<i class="blue">[[${page.totalElements}]]</i>条记录，当前显示第&nbsp;<i class="blue">[[${page.number+1}]]&nbsp;</i>页，共<i class="blue">[[${page.totalPages}]]&nbsp;</i>页</p>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <br/>
+                    <li  th:each="est: ${page.content}">
+                        <div style="width: 300px;height: 300px;background-color: white;border: #37ffb3 solid 3px;border-radius: 10px;">
+                            <p th:text="'品牌ID:'+${est.getBrandid()}+' 品牌名称:'+${est.getBrandname()}" class="lead"></p>
+                            <p th:text="'品牌首字母:'+${est.getBrandinitial()}" class="lead"></p>
+                            <p class="lead">品牌LOGO<img th:src=@{${"/images/logo/"+est.getBrandname()+".jpg"}}></p>
+                            <p>
+                                <button class="btn btn-info"  th:value="${est.getBrandid()}" onclick='editInfo(this.value)'>编辑</button>
+                                <button class="btn btn-info btn-warning"><a th:href="@{'/test/deleteCarBrand/'+${est.getBrandid()}}">删除</a></button>
+                            </p>
+                        </div>
+                    </li>
+                <ul class="pager">
+                    <div th:if="${page.number > 0}" class="form-group">
+                        <li><a href="javascript:gotoPage(0)">首页</a></li>
+                        <li><a th:attr="href='javascript:gotoPage('+${page.number - 1}+')'">上一页</a></li>
+                    </div>
+                    <div th:if="${((page.number+1)*page.size) &lt; page.totalElements}" >
+                        <li><a th:attr="href='javascript:gotoPage('+${page.number + 1}+')'">下一页</a></li>
+                        <li><a th:attr="href='javascript:gotoPage('+${page.totalPages - 1}+')'">尾页</a></li>
+                    </div>
+                </ul>
+            </center>
+        </div>
+    </div>
+</div>
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+    function gotoPage(obj) {//分页跳转上一页及下一页的操作
+        $('#pageNo').val(obj);
+        $('#actionForm').submit();
+    };
+</script>
+</body>
+</html>

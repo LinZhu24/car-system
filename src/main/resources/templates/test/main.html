@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"><!--thymeleaf的头文件-->
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no"/>
+    <!--上面这一行便于移动端开发使用，使显示更加清晰，以后编程都加上这一行-->
+    <title>双林二手车管理员主页面</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="/css/style.css" rel="stylesheet"/>
+    <style type="text/css">
+
+
+        img{border:none;}
+        *{font-family:'微软雅黑';}
+        dl,dt,dd{display:block;margin:0;}
+        a{text-decoration:none;}
+        /*left*/
+        .leftsidebar_box{width:160px;height: available; overflow:visible !important;position:fixed;height:100% !important;background-color:#3992d0;}
+        .line{height:2px;width:100%;background-image:url(/images/left/line_bg.png);background-repeat:repeat-x;}
+        .leftsidebar_box dt{padding-left:40px;padding-right:10px;background-repeat:no-repeat;background-position:10px center;color:#f5f5f5;font-size:14px;position:relative;line-height:48px;cursor:pointer;}
+        .leftsidebar_box dd{background-color:#317eb4;padding-left:40px;}
+        .leftsidebar_box dd a{color:#f5f5f5;line-height:20px;}
+        .leftsidebar_box dt img{position:absolute;right:10px;top:20px;}
+        .system_log dt{background-image:url(/images/left/system.png)}
+        .custom dt{background-image:url(/images/left/custom.png)}
+        .channel dt{background-image:url(/images/left/channel.png)}
+        .app dt{background-image:url(/images/left/app.png)}
+        .cloud dt{background-image:url(/images/left/cloud.png)}
+        .syetem_management dt{background-image:url(/images/left/syetem_management.png)}
+        .source dt{background-image:url(/images/left/source.png)}
+        .statistics dt{background-image:url(/images/left/statistics.png)}
+        .leftsidebar_box dl dd:last-child{padding-bottom:10px;}
+    </style>
+</head>
+<body>
+<button class="btn btn-info"><a href="/test/findAllCar">查看所有的车辆</a></button>
+<button class="btn btn-info" id="test"><a href="/test/findAllCar">开始估价</a></button>
+
+
+<div id="work" style="display: block">
+    <button class="btn btn-danger"  id="working" th:if="${list.getConditionflag()==0}"><a href="" style="color: whitesmoke;" >办理</a></button>
+</div>
+<div id="workingDiv" style="display:none">
+    <button class="btn btn-info" href="">
+        <span class="glyphicon glyphicon-ok"></span> Ok
+    </button>
+</div>
+
+
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+
+    function Show(obj)
+    {
+        if(obj.style.display=="none")
+        {
+            obj.style.display='block';
+        }
+    }
+    function Hidden(obj)
+    {
+        if(obj.style.display=="block")
+        {
+            obj.style.display='none';
+        }
+    }
+    window.onload=function()
+    {
+        var olink=document.getElementById("working");
+        var odiv=document.getElementById("workingDiv");
+        var work=document.getElementById("work");
+        olink.onclick=function()
+        {
+            Show(odiv);
+            Hidden(work);
+            return false;
+        }
+    }
+
+
+    $("#test").click(function () {
+        $.ajax({
+            url:"http://v.juhe.cn/usedcar/assess",
+            type: "POST",
+            dataType:"json",
+            success: function (result) {
+            }
+        })
+    })
+</script>
+</body>
+</html>

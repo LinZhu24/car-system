@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org"><head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <title>欣欣汽车百科</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="/css/style.css" rel="stylesheet"/>
+
+    <link href="/css/carnews/baodian-category.css" rel="stylesheet"/>
+    <link href="/css/carnews/base.css" rel="stylesheet"/>
+    <link href="/css/carnews/city.css" rel="stylesheet"/>
+    <link href="/css/carnews/common.css" rel="stylesheet"/>
+    <link href="/css/carnews/jquery-ui.min.css" rel="stylesheet"/>
+    <link href="/css/carnews/page2016_2adc238.css" rel="stylesheet"/>
+    <link href="/css/carnews/popup_7815cf7.css" rel="stylesheet"/>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top" style="height: 50px;">
+    <div class="container">
+        <div class="navbar-header">
+            <a href="#" class="navbar-brand logo" style="margin-top: -2px;"><img src="/images/logo5.jpg" alt="欣欣二手车平台"/></a>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="list-group-item-info" style="background-color: #f8f8f8;font-size: 17px;line-height: 10px;"><a href="#" style="color: lightseagreen;">欣欣二手车交易平台</a></li>
+        </ul>
+        <div class="collapse navbar-collapse" id="navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/user/theMainPage"><span class="glyphicon glyphicon-home"></span>首页</a></li>
+                <li><a href="/user/buyCar"><span class="glyphicon glyphicon-shopping-cart"></span> 买车</a></li>
+                <li><a href="/user/sellCar"><span class="glyphicon glyphicon-heart-empty"></span> 卖车</a></li>
+                <li class="active"><a href="/user/carBaike"><span class="glyphicon glyphicon-fire"></span>汽车百科</a></li>
+                <li><a href="/user/personCenter"><span class="glyphicon glyphicon-tint"></span> 个人中心</a></li>
+                <li ><button class="btn btn-info" style="margin-top: 9px; margin-right: 7px" th:if="${session.currentUser==null}"><span class="glyphicon glyphicon-user"></span><a href="/user/info" style="text-decoration: none;">登录</a></button></li>
+                <li><button class="btn btn-info" style="margin-top: 9px;" th:if="${session.currentUser==null}"><span class="glyphicon glyphicon-plus"></span><a href="/user/temp" style="text-decoration: none;">注册</a></button></li>
+                <li><button class="btn btn-info" style="margin-top: 9px; margin-right: 7px" th:if="${session.currentUser!=null}"
+                            th:text="${session.currentUser.getPhone()}"></button></li>
+                <li><button class="btn btn-info" style="margin-top: 9px;" th:if="${session.currentUser!=null}"><a href="/user/quit">退出登录</a></button> </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!--面包屑导航-->
+<div class="baodian-crumbs-nav" style="margin-top: 50px;">
+    <div class="baodian-wrap">
+        当前位置：    <a target="_blank" href="/shenzhen/">首页</a>&gt;
+        <a target="_blank" href="/article/hot/4/">汽车百科</a>
+    </div>
+</div>
+<!--宝典分类主题内容部分-->
+<div class="baodian-category-content">
+
+    <div class="canon-container-left">
+        <div class="buycar-baodian mt0">
+            <h1 class="buycar-title">汽车百科</h1>
+            <p class="small-f">最新汽车百科小贴士和新鲜资讯</p>
+            <p class="num-box">已为<em>666</em>个用户<br>解决问题</p>
+        </div>
+        <div class="canon-code-img">
+            <img src="/images/design/kobe.jpg" style="width: 290px;height: 330px;" />
+            <p class="lead" style="margin-left: 20px;">科比带你体验全新汽车天地</p>
+        </div>
+    </div>
+    <!--右侧部分-->
+    <div class="baodian-category-right">
+        <ul class="baodian-carlife">
+            <li>
+                <a   style="text-decoration: none;">
+                        <span class="img-box">
+                            <img src="//c6.xinstatic.com/f3/20180510/1210/5af3c64ba6ad3718370_16.jpg" />
+                        </span>
+                    <div class="carlife-box" th:each="list:${carTipList}">
+                        <h2 class="caption" th:text="${list.getTitle()}">老司机开啥车 大众的1.4T还真有两把刷子</h2>
+                        <p class="text" th:text="${list.getContent()}">这一期的老司机是一位朗境的车主，什么？朗境不知道？那朗逸知道吧，朗境就是朗逸的跨界旅行版，配置高，动力好，尾箱空间有点厉害了，让我们一起看看这位老司机怎么说他的爱车吧。</p>
+                    </div>
+                </a>
+            </li>
+<!--            <li>
+                <a href="/article/view/4/1527/">
+                        <span class="img-box">
+                            <img src="//c4.xinstatic.com/f3/20180512/1858/5af6c8d250f8e260226_16.jpg" >
+                        </span>
+                    <div class="carlife-box">
+                        <h2 class="caption">细分紧凑家轿市场 这3款大众性价比颇高</h2>
+                        <p class="text">　　在中国的紧凑型车市场，一些大的汽车厂商已经把它细分为三个档次：1.用最新平台开发的主流车型满足那些追求品质的消费者2.用老款车型不退市的策略或用较老一些的紧凑型车平台再开发生产...</p>
+                        <p class="tagging-box"><span class="fl"><label class="ele">2018-05-12</label><label class="ele"><img src="//s6.xinstatic.com/newweb/img/baodian/liulan.png?v=17112101">85</label></span><span class="fr">
+                                <label href="javascript:;" class="ele">最新资讯</label>
+                                                            </span></p>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="/article/view/4/1530/">
+                        <span class="img-box">
+                            <img src="//c1.xinstatic.com/f3/20180510/2058/5af441de0ccc0396210_16.jpg" alt="">
+                        </span>
+                    <div class="carlife-box">
+                        <h2 class="caption">献礼母亲节 “妈！我给您买了辆车”</h2>
+                        <p class="text">又到了一年一度的母亲节了，在这个伟大又骄傲的日子里，我们不想只是在朋友圈里说爱她，也不愿再千篇一律的寄送多年不变的康乃馨。如果说男人对汽车的喜爱是与生俱来的，那么女人更愿意把汽...</p>
+                        <p class="tagging-box"><span class="fl"><label class="ele">2018-05-11</label><label class="ele"><img src="//s6.xinstatic.com/newweb/img/baodian/liulan.png?v=17112101">3709</label></span><span class="fr">
+                                <label href="javascript:;" class="ele">最新资讯</label>
+                                                            </span></p>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="/article/view/4/1528/">
+                        <span class="img-box">
+                            <img src="//c5.xinstatic.com/f3/20180509/1451/5af29a7938765310767_16.jpg" alt="首付6万起 这3款豪华中型SUV很抢手">
+                        </span>
+                    <div class="carlife-box">
+                        <h2 class="caption">首付6万起 这3款豪华中型SUV很抢手</h2>
+                        <p class="text">　　当今可以说是一个追求个性的年代，车型的常规设计已经不再能够博得消费者的关注，运动化、个性化等彰显身份突出个性的设计理念更为人们所接受，而近几年销售火爆的SUV市场更是如此，拥有...</p>
+                        <p class="tagging-box"><span class="fl"><label class="ele">2018-05-09</label><label class="ele"><img src="//s6.xinstatic.com/newweb/img/baodian/liulan.png?v=17112101">4155</label></span><span class="fr">
+                                <label href="javascript:;" class="ele">最新资讯</label>
+                                                            </span></p>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="/article/view/4/1526/">
+                        <span class="img-box">
+                            <img src="//c3.xinstatic.com/f3/20180507/1147/5aefcc544ea02871579_16.jpg" alt="个性十足 首付一万多的高颜值跨界车">
+                        </span>
+                    <div class="carlife-box">
+                        <h2 class="caption">个性十足 首付一万多的高颜值跨界车</h2>
+                        <p class="text">最近的问答中遇到提问关于跨界车的问题，有没有一种介于SUV和轿车之间的车呢？想买一辆个性十足的车又好开的车。那么当然是选择跨界车了，本期选择了跨界车大咖介绍给大家，要个性要颜值，看...</p>
+                        <p class="tagging-box"><span class="fl"><label class="ele">2018-05-07</label><label class="ele"><img src="//s6.xinstatic.com/newweb/img/baodian/liulan.png?v=17112101">5488</label></span><span class="fr">
+                                <label href="javascript:;" class="ele">最新资讯</label>
+                                                            </span></p>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="/article/view/4/1525/">
+                        <span class="img-box">
+                            <img src="//c2.xinstatic.com/f3/20180428/1720/5ae43cce0d170566160_16.jpg" alt="7万元买家轿 选合资还是国产">
+                        </span>
+                    <div class="carlife-box">
+                        <h2 class="caption">7万元买家轿 选合资还是国产</h2>
+                        <p class="text">　　如今，随着用车的需求越来越多样化，不同的细分市场也慢慢多了起来，近些年不少汽车厂商也看到这一细分市场的前景，相继推出了不同风格的车型。然而，对于不同类型的消费者而言，他们在...</p>
+                        <p class="tagging-box"><span class="fl"><label class="ele">2018-05-04</label><label class="ele"><img src="//s6.xinstatic.com/newweb/img/baodian/liulan.png?v=17112101">5406</label></span><span class="fr">
+                                <label href="javascript:;" class="ele">最新资讯</label>
+                                                            </span></p>
+                    </div>
+                </a>
+            </li>-->
+
+        </ul>
+        <!--<div class="con-page search_page_link">
+            &lt;!&ndash; 收藏对比记录页-分页代码 &ndash;&gt;
+            <div class="con-page">
+                <span class="page-current benz_page_current">1</span>
+                <a href="/article/hot/4/i2/" class="benz_page_a">2</a>
+                <a href="/article/hot/4/i3/" class="benz_page_a">3</a>
+                <a href="/article/hot/4/i4/" class="benz_page_a">4</a>
+                <a href="/article/hot/4/i5/" class="benz_page_a">5</a>
+                <span>...</span>
+                <a href="/article/hot/4/i53/" class="benz_page_a">53</a>
+                <a href="/article/hot/4/i2/" class="benz_page_a">下一页</a>
+
+            </div>
+        </div>-->
+    </div>
+</div>
+<footer id="footer">
+    <div class="container">
+        <p>© 2018 All Rights Reserved.林雪瑞设计 </p>
+        <p>鲁ICP备160100号,地址：山东省烟台市芝罘区红旗中路186号,邮编：264001</p>
+    </div>
+</footer>
+<img src="https://ab.xin.com/collect.gif?type=w&amp;uid=&amp;cityid=2401&amp;url=https%3A%2F%2Fwww.xin.com%2Farticle%2Fhot%2F4%2F%3Fchannel%3Da49b117c44837d110753e751863f53&amp;ref=https%3A%2F%2Fwww.xin.com%2Factivity%2F2401%2F%3Fchannel%3Da49b117c44837d110753e751863f53&amp;source=www.xin.com&amp;channel=a49b117c44837d110753e751863f53&amp;rf_seo=&amp;rf_key=&amp;cid=1f49580c-f73f-9cf2-0a65-699461366f1c&amp;from=www&amp;app=&amp;net=&amp;ua=Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36&amp;sc=1366*768&amp;ts=1526364605004&amp;abversion=&amp;keywordid=&amp;creative=&amp;mediaid=" style="display: none;"><img src="https://ab.xin.com/collect.gif?type=p&amp;ce=1&amp;ls=1&amp;lg=zh-CN&amp;cd=24&amp;pid=https://www.xin.com/article/hot/4/&amp;nt=0&amp;nr=0&amp;pce=1526364603618&amp;pcs=1526364603548&amp;pdc=1526364604998&amp;pdclee=1526364604279&amp;pdcles=1526364604241&amp;pdi=1526364604241&amp;pdl=1526364603984&amp;pdle=1526364603548&amp;pdls=1526364603548&amp;pfs=1526364603546&amp;plee=1526364605005&amp;ples=1526364604998&amp;pns=1526364603546&amp;pre=0&amp;prs=0&amp;preqs=1526364603618&amp;prese=1526364603977&amp;press=1526364603976&amp;pscs=1526364603578&amp;puee=1526364603978&amp;pues=1526364603977&amp;ready=0&amp;redirect=0&amp;cache=2&amp;unload=0&amp;dns=0&amp;tcp=70&amp;request=431&amp;dom=302&amp;load=1452&amp;hostname=www.xin.com&amp;uri=/article/hot/4/&amp;title=【买车资讯】 - 优信二手车&amp;refer=https://www.xin.com/activity/2401/?channel:a49b117c44837d110753e751863f53&amp;url=https://www.xin.com/article/hot/4/&amp;params=channel:a49b117c44837d110753e751863f53&amp;pjshsl=793000000&amp;ptjshs=10000000&amp;pujshs=10000000&amp;cid=1f49580c-f73f-9cf2-0a65-699461366f1c&amp;from=www&amp;app=&amp;net=&amp;ua=Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36&amp;sc=1366*768&amp;ts=1526364608007&amp;abversion=&amp;keywordid=&amp;creative=&amp;mediaid=" style="display: none;"></body>
+</html>

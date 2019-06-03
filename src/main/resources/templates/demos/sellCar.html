@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no"/>
+    <!--上面这一行便于移动端开发使用，使显示更加清晰，以后编程都加上这一行-->
+    <title>卖车</title>
+    <link href="../../static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../static/css/style.css" rel="stylesheet">
+</head>
+<body>
+
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a href="demo.html" class="navbar-brand logo"><img src="../../static/images/logo5.jpg" alt="二手车平台"></a>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse" id="navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="demo.html"><span class="glyphicon glyphicon-home"></span> 我要买车</a></li>
+                <li class="active"><a href="sellCar.html"><span class="glyphicon glyphicon-list"></span> 我要卖车</a></li>
+                <li><a href="talkRoom.html"><span class="glyphicon glyphicon-fire"></span> 车友交流</a></li>
+                <li><a href="personInfo.html"><span class="glyphicon glyphicon-question-sign"></span> 个人信息</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="jumbotron">
+    <div class="container">
+        <hgroup>
+            <h1>汽车推荐</h1>
+            <h4>各类汽车，琳琅满目，集四海名车</h4>
+        </hgroup>
+    </div>
+</div>
+
+<div id="information">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="container-fluid" style="padding: 0;">
+                    <div class="row info-content">
+                        <div class="col-md-7 col-sm-7 col-xs-7">
+                            <img src="../../static/images/sell1.jpg" class="img-responsive" alt="">
+                        </div>
+                        <div class="col-md-5 col-sm-5 col-xs-5">
+                            <h4>大众|帕萨特|2017款|1.4T|自动|280TSI尊荣版</h4>
+                            <p>2017年|7.9万公里 </p>
+                            <p class="hidden-xs">14.90 万,一成购,
+                                首付1.49万,月供3679元</p>
+                        </div>
+                    </div>
+                    <div class="row info-content">
+                        <div class="col-md-7 col-sm-7 col-xs-7">
+                            <img src="../../static/images/sell2.jpg" class="img-responsive" alt="">
+                        </div>
+                        <div class="col-md-5 col-sm-5 col-xs-5">
+                            <h4>奥迪 A4L 2013款 2.0T 自动 35TFSI舒适型</h4>
+                            <p>2017年｜6.7万公里</p>
+                            <p class="hidden-xs">19.50 万 一成购
+                                首付1.95万 月供4815元</p>
+                        </div>
+                    </div>
+                    <div class="row info-content">
+                        <div class="col-md-7 col-sm-7 col-xs-7">
+                            <img src="../../static/images/sell3.jpg" class="img-responsive" alt="">
+                        </div>
+                        <div class="col-md-5 col-sm-5 col-xs-5">
+                            <h4>马自达 马3昂克赛拉三厢 2016款 1.5 自动 豪华型</h4>
+                            <p>2017年 | 1.2万公里 | 青岛</p>
+                            <p class="hidden-xs">10.90 万
+                                首付3.27万 月供2642元</p>
+                        </div>
+                    </div>
+                    <div class="row info-content">
+                        <div class="col-md-7 col-sm-7 col-xs-7">
+                            <img src="../../static/images/sell1.jpg" class="img-responsive" alt="">
+                        </div>
+                        <div class="col-md-5 col-sm-5 col-xs-5">
+                            <h4>大众|帕萨特|2017款|1.4T|自动|280TSI尊荣版</h4>
+                            <p>2017年|7.9万公里 </p>
+                            <p class="hidden-xs">14.90 万,一成购,
+                                首付1.49万,月供3679元</p>
+                        </div>
+                    </div>
+                    <div class="row info-content">
+                        <div class="col-md-7 col-sm-7 col-xs-7">
+                            <img src="../../static/images/sell2.jpg" class="img-responsive" alt="">
+                        </div>
+                        <div class="col-md-5 col-sm-5 col-xs-5">
+                            <h4>奥迪 A4L 2013款 2.0T 自动 35TFSI舒适型</h4>
+                            <p>2017年｜6.7万公里</p>
+                            <p class="hidden-xs">19.50 万 一成购
+                                首付1.95万 月供4815元</p>
+                        </div>
+                    </div>
+                    <div class="row info-content">
+                        <div class="col-md-7 col-sm-7 col-xs-7">
+                            <img src="../../static/images/sell3.jpg" class="img-responsive" alt="">
+                        </div>
+                        <div class="col-md-5 col-sm-5 col-xs-5">
+                            <h4>马自达 马3昂克赛拉三厢 2016款 1.5 自动 豪华型</h4>
+                            <p>2017年 | 1.2万公里 | 青岛</p>
+                            <p class="hidden-xs">10.90 万
+                                首付3.27万 月供2642元</p>
+                        </div>
+                    </div>
+                    <div class="row info-content">
+                        <div class="col-md-7 col-sm-7 col-xs-7">
+                            <img src="../../static/images/sell1.jpg" class="img-responsive" alt="">
+                        </div>
+                        <div class="col-md-5 col-sm-5 col-xs-5">
+                            <h4>大众|帕萨特|2017款|1.4T|自动|280TSI尊荣版</h4>
+                            <p>2017年|7.9万公里 </p>
+                            <p class="hidden-xs">14.90 万,一成购,
+                                首付1.49万,月供3679元</p>
+                        </div>
+                    </div>
+                    <div class="row info-content">
+                        <div class="col-md-7 col-sm-7 col-xs-7">
+                            <img src="../../static/images/sell2.jpg" class="img-responsive" alt="">
+                        </div>
+                        <div class="col-md-5 col-sm-5 col-xs-5">
+                            <h4>奥迪 A4L 2013款 2.0T 自动 35TFSI舒适型</h4>
+                            <p>2017年｜6.7万公里</p>
+                            <p class="hidden-xs">19.50 万 一成购
+                                首付1.95万 月供4815元</p>
+                        </div>
+                    </div>
+                    <div class="row info-content">
+                        <div class="col-md-7 col-sm-7 col-xs-7">
+                            <img src="../../static/images/sell3.jpg" class="img-responsive" alt="">
+                        </div>
+                        <div class="col-md-5 col-sm-5 col-xs-5">
+                            <h4>马自达 马3昂克赛拉三厢 2016款 1.5 自动 豪华型</h4>
+                            <p>2017年 | 1.2万公里 | 青岛</p>
+                            <p class="hidden-xs">10.90 万
+                                首付3.27万 月供2642元</p>
+                        </div>
+                    </div>
+                    <div class="row info-content">
+                        <div class="col-md-7 col-sm-7 col-xs-7">
+                            <img src="../../static/images/sell1.jpg" class="img-responsive" alt="">
+                        </div>
+                        <div class="col-md-5 col-sm-5 col-xs-5">
+                            <h4>大众|帕萨特|2017款|1.4T|自动|280TSI尊荣版</h4>
+                            <p>2017年|7.9万公里 </p>
+                            <p class="hidden-xs">14.90 万,一成购,
+                                首付1.49万,月供3679元</p>
+                        </div>
+                    </div>
+                    <div class="row info-content">
+                        <div class="col-md-7 col-sm-7 col-xs-7">
+                            <img src="../../static/images/sell2.jpg" class="img-responsive" alt="">
+                        </div>
+                        <div class="col-md-5 col-sm-5 col-xs-5">
+                            <h4>奥迪 A4L 2013款 2.0T 自动 35TFSI舒适型</h4>
+                            <p>2017年｜6.7万公里</p>
+                            <p class="hidden-xs">19.50 万 一成购
+                                首付1.95万 月供4815元</p>
+                        </div>
+                    </div>
+                    <div class="row info-content">
+                        <div class="col-md-7 col-sm-7 col-xs-7">
+                            <img src="../../static/images/sell3.jpg" class="img-responsive" alt="">
+                        </div>
+                        <div class="col-md-5 col-sm-5 col-xs-5">
+                            <h4>马自达 马3昂克赛拉三厢 2016款 1.5 自动 豪华型</h4>
+                            <p>2017年 | 1.2万公里 | 青岛</p>
+                            <p class="hidden-xs">10.90 万
+                                首付3.27万 月供2642元</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 info-right hidden-sm hidden-xs">
+                <blockquote>车辆推荐</blockquote>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-5 col-sm-5 col-xs-5" style="margin:12px 0;padding:0;">
+                            <img src="../../static/images/sell3.jpg" class="img-responsive" alt="">
+                        </div>
+                        <div class="col-md-7 col-sm-7 col-xs-7" style="padding-right: 0">
+                            <h4>马自达 马3昂克赛拉三厢 2016款 1.5 自动 豪华型</h4>
+                            <p>2017年 | 1.2万公里 | 青岛</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-5 col-sm-5 col-xs-5" style="margin: 12px 0;padding:0;">
+                            <img src="../../static/images/sell2.jpg" class="img-responsive" alt="">
+                        </div>
+                        <div class="col-md-7 col-sm-7 col-xs-7" style="padding-right: 0">
+                            <h4>奥迪 A4L 2013款 2.0T 自动 35TFSI舒适型</h4>
+                            <p>2017年｜6.7万公里</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-5 col-sm-5 col-xs-5" style="margin: 12px 0;padding:0;">
+                            <img src="../../static/images/sell1.jpg" class="img-responsive" alt="">
+                        </div>
+                        <div class="col-md-7 col-sm-7 col-xs-7" style="padding-right: 0">
+                            <h4>大众|帕萨特|2017款|1.4T|自动|280TSI尊荣版</h4>
+                            <p>2017年|7.9万公里 </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-5 col-sm-5 col-xs-5" style="margin:12px 0;padding:0;">
+                            <img src="../../static/images/sell3.jpg" class="img-responsive" alt="">
+                        </div>
+                        <div class="col-md-7 col-sm-7 col-xs-7" style="padding-right: 0">
+                            <h4>马自达 马3昂克赛拉三厢 2016款 1.5 自动 豪华型</h4>
+                            <p>2017年 | 1.2万公里 | 青岛</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-5 col-sm-5 col-xs-5" style="margin: 12px 0;padding:0;">
+                            <img src="../../static/images/sell2.jpg" class="img-responsive" alt="">
+                        </div>
+                        <div class="col-md-7 col-sm-7 col-xs-7" style="padding-right: 0">
+                            <h4>奥迪 A4L 2013款 2.0T 自动 35TFSI舒适型</h4>
+                            <p>2017年｜6.7万公里</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-5 col-sm-5 col-xs-5" style="margin: 12px 0;padding:0;">
+                            <img src="../../static/images/sell1.jpg" class="img-responsive" alt="">
+                        </div>
+                        <div class="col-md-7 col-sm-7 col-xs-7" style="padding-right: 0">
+                            <h4>大众|帕萨特|2017款|1.4T|自动|280TSI尊荣版</h4>
+                            <p>2017年|7.9万公里 </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-5 col-sm-5 col-xs-5" style="margin:12px 0;padding:0;">
+                            <img src="../../static/images/sell3.jpg" class="img-responsive" alt="">
+                        </div>
+                        <div class="col-md-7 col-sm-7 col-xs-7" style="padding-right: 0">
+                            <h4>马自达 马3昂克赛拉三厢 2016款 1.5 自动 豪华型</h4>
+                            <p>2017年 | 1.2万公里 | 青岛</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-5 col-sm-5 col-xs-5" style="margin: 12px 0;padding:0;">
+                            <img src="../../static/images/sell2.jpg" class="img-responsive" alt="">
+                        </div>
+                        <div class="col-md-7 col-sm-7 col-xs-7" style="padding-right: 0">
+                            <h4>奥迪 A4L 2013款 2.0T 自动 35TFSI舒适型</h4>
+                            <p>2017年｜6.7万公里</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-5 col-sm-5 col-xs-5" style="margin: 12px 0;padding:0;">
+                            <img src="../../static/images/sell1.jpg" class="img-responsive" alt="">
+                        </div>
+                        <div class="col-md-7 col-sm-7 col-xs-7" style="padding-right: 0">
+                            <h4>大众|帕萨特|2017款|1.4T|自动|280TSI尊荣版</h4>
+                            <p>2017年|7.9万公里 </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer id="footer">
+    <div class="container">
+        <p>© 2018 All Rights Reserved.林雪瑞设计 </p>
+        <p>鲁ICP备160100号,地址：山东省烟台市芝罘区红旗中路186号,邮编：264001</p>
+    </div>
+</footer>
+
+<script src="../../static/js/jquery.min.js"></script>
+<script src="../../static/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+
+
+</script>
+</body>
+</html>

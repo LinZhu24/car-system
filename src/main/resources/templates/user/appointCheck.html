@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"><!--thymeleaf的头文件-->
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no"/>
+    <!--上面这一行便于移动端开发使用，使显示更加清晰，以后编程都加上这一行-->
+    <title>欣欣预约检车页面</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="/css/style.css" rel="stylesheet"/>
+    <link href="/css/cityPicker.css" rel="stylesheet"/>
+    <style>
+        .inputEstimate{
+            width: 258px;
+            height: 42px;
+            font-size: 14px;
+            line-height: 1.42857143;
+            float: left;
+        }
+        .selectStyle1{
+            width: 126px;
+            height: 42px;
+            padding: 6px 12px;
+            font-size: 14px;
+            line-height: 1.42857143;
+            border-radius: 3px;
+        }
+        .selectStyle2{
+            width: 126px;
+            height: 42px;
+            padding: 6px 12px;
+            font-size: 14px;
+            line-height: 1.42857143;
+            border-radius: 3px;
+        }
+        .selectStyle3{
+            width: 258px;
+            height: 42px;
+            padding: 6px 12px;
+            font-size: 14px;
+            line-height: 1.42857143;
+            border-radius: 3px;
+        }
+        .appointment-btn{
+            width:240px;
+            height:50px;
+            border-radius:3px;
+            -webkit-border-radius:3px;
+            background:lightgreen;
+            box-shadow:0 2px 6px 0 rgba(248,93,0,.15);
+            -webkit-box-shadow:0 2px 6px 0 rgba(248,93,0,.15);
+            display:block;
+            margin:15px 0 0;text-align:center;color:#fff;font-size:18px;line-height:50px;float:right;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a href="#" class="navbar-brand logo"><img src="/images/logo5.jpg" alt="欣欣二手车平台"/></a>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="list-group-item-info" style="background-color: #f8f8f8;font-size: 17px;line-height: 10px;"><a href="#" style="color: lightseagreen;">欣欣二手车交易平台</a></li>
+        </ul>
+        <div class="collapse navbar-collapse" id="navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="active"><a href="/user/theMainPage"><span class="glyphicon glyphicon-home"></span>首页</a></li>
+                <li><a href="/user/buyCar"><span class="glyphicon glyphicon-shopping-cart"></span> 买车</a></li>
+                <li><a href="/user/sellCar"><span class="glyphicon glyphicon-heart-empty"></span> 卖车</a></li>
+                <li><a href="/user/carBaike"><span class="glyphicon glyphicon-fire"></span>汽车百科</a></li>
+                <li><a href="/user/personCenter"><span class="glyphicon glyphicon-tint"></span> 个人中心</a></li>
+                <li ><button class="btn btn-info" style="margin-top: 9px; margin-right: 7px" th:if="${session.currentUser==null}"><span class="glyphicon glyphicon-user"></span><a href="/user/info" style="text-decoration: none;">登录</a></button></li>
+                <li><button class="btn btn-info" style="margin-top: 9px;" th:if="${session.currentUser==null}"><span class="glyphicon glyphicon-plus"></span><a href="/user/temp" style="text-decoration: none;">注册</a></button></li>
+                <li><button class="btn btn-info" style="margin-top: 9px; margin-right: 7px" th:if="${session.currentUser!=null}"
+                            th:text="${session.currentUser.getPhone()}"></button></li>
+                <li><button class="btn btn-info" style="margin-top: 9px;" th:if="${session.currentUser!=null}"><a href="/user/quit">退出登录</a></button> </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div id="information" style="margin-top: 50px;background-color:white;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="container-fluid" style="padding:0;">
+                    <div class="row info-content" style="height: 389px;">
+                        <div class="col-md-6 col-sm-6 col-xs-6">
+                            <br>
+                            <br>
+                            <!--<img src="/images/est_Jieda.jpg" class="img-responsive"/>-->
+                        </div>
+                        <br>
+                        <br>
+                        <div class="col-md-6 col-sm-6 col-xs-6">
+                            <div>
+                                <p class="lead" style="color: black;">您的汽车评估参数如下：</p>
+                            </div>
+
+                            <div style="margin-top: 30px;">
+                                <p style="padding: 5px;font-size: 20px;color: black;" th:text="${estimate.carbrand} +'   /   ' + ${estimate.carseries} +'   /   ' + ${estimate.carmodel}">大众 捷达 2015款 1.4 手动 时尚型</p>
+                                <p style="padding: 5px;font-size: 20px;color: black;" class="txt" th:text="${estimate.regdate} +'上牌  /  ' + ${estimate.drivemiles} +'万公里   /   ' + ${estimate.ownercity}">2015-04-01上牌 / 1.00万公里 / 上海</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 info-right hidden-xs hidden-sm">
+                <blockquote>
+                    <p th:if="${user.gender} eq '女'" th:text="'欢迎'+${user.familyname}+'女士来到预约检车平台'" class="lead"></p>
+                    <p th:if="${user.gender} eq '男'" th:text="'欢迎'+${user.familyname}+'先生来到预约检车平台'" class="lead"></p>
+                </blockquote>
+                <br>
+                <br>
+                <div class="container-fluid">
+                    <form class="form-horizontal" action="/user/sendEmail" method="post">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">检测车辆时间</label>
+                            <div class="col-sm-10">
+                                <div class="input-group">
+                                    <input type="datetime-local" name="appointdate" class="form-control" style="width:450px; height: 42px;" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">看车地点</label>
+                            <div class="col-sm-10">
+                                <div class="input-group">
+                                    <input type="text" name="appointplace" class="form-control" style="width:450px; height: 42px;" placeholder="填写详细地址"/>
+                                </div>
+                            </div>
+                        </div>
+                        <input type="hidden" name="estid" th:value="${estimate.estid}" />
+
+                        <p class="lead">选择为您服务的工作人员</p>
+                        <div th:each="list:${adminList}">
+                            <input type="radio" name="adminid"  th:value="${list.adminid}">
+                            <label th:text="${list.adminname}"></label>
+                            <p>本系统工作人员，认真负责，为您提供一流服务 </p>
+                        </div>
+                        <div class="form-group">
+                            <input class="btn btn-info active" type="submit" style="margin-left: 110px;" value="发送预约检车请求"/>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer id="footer">
+    <div class="container">
+        <p>© 2018 All Rights Reserved.林雪瑞设计 </p>
+        <p>鲁ICP备160100号,地址：山东省烟台市芝罘区红旗中路186号,邮编：264001</p>
+    </div>
+</footer>
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"><!--thymeleaf的头文件-->
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no"/>
+    <!--上面这一行便于移动端开发使用，使显示更加清晰，以后编程都加上这一行-->
+    <title>欣欣卖车页面</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="/css/style.css"/>
+    <style>
+        .title:before{content:"";width:26px;height:3px;background:lightgreen;position:absolute;top:30px;left:50%;margin-left:-13px}
+        .question-wrap{background-color:#fafafa;width:100%;padding:60px 0}
+        .title{display:block;width:1210px;height:33px;margin:0 auto 35px;font-size:24px;color:#585858;position:relative;text-align:center}
+        .questionCon{width:1210px;margin:0 auto;overflow:hidden}
+        .quesli{width:580px;height:180px;float:left;border-top:1px solid #e5e5e5}
+        .quesli .questip{padding:30px 0 22px;display:block;font-size:18px;color:#585858;line-height:18px}
+        .quesli .questxt{line-height:30px;font-size:15px;color:#7a7a7a}
+        .quesRight{float:right}
+        .change-h270{height:270px}
+        .change-h150{height:150px}
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a href="#" class="navbar-brand logo"><img src="/images/logo5.jpg" alt="二手车平台"/></a>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="list-group-item-info" style="background-color: #f8f8f8;font-size: 17px;line-height: 10px;"><a href="#" style="color: lightseagreen;">欣欣二手车交易平台</a></li>
+        </ul>
+        <div class="collapse navbar-collapse" id="navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/user/theMainPage"><span class="glyphicon glyphicon-home"></span>首页</a></li>
+                <li><a href="/user/buyCar"><span class="glyphicon glyphicon-shopping-cart"></span> 买车</a></li>
+                <li class="active"><a href="/user/sellCar"><span class="glyphicon glyphicon-heart-empty"></span> 卖车</a></li>
+                <li><a href="/user/carBaike"><span class="glyphicon glyphicon-fire"></span>汽车百科</a></li>
+                <li><a href="/user/personCenter"><span class="glyphicon glyphicon-tint"></span>个人中心</a></li>
+                <li ><button class="btn btn-info" style="margin-top: 9px; margin-right: 7px" th:if="${session.currentUser==null}"><span class="glyphicon glyphicon-user"></span><a href="/user/info" style="text-decoration: none;">登录</a></button></li>
+                <li><button class="btn btn-info" style="margin-top: 9px;" th:if="${session.currentUser==null}"><span class="glyphicon glyphicon-plus"></span><a href="/user/temp" style="text-decoration: none;">注册</a></button></li>
+                <li><button class="btn btn-info" style="margin-top: 9px; margin-right: 7px" th:if="${session.currentUser!=null}"
+                            th:text="${session.currentUser.getPhone()}"></button></li>
+                <li><button class="btn btn-info" style="margin-top: 9px;" th:if="${session.currentUser!=null}"><a href="/user/quit">退出登录</a></button> </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div style="margin:50px 0 0 0;color:black;background-color: #2aabd2">
+</div>
+<div class="tab3">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6">
+                <!--<img src="/images/intro.jpg" class="auto img-responsive center-block" alt=""/>-->
+                <img class="auto img-responsive center-block"  src="/images/design/xinxin.png"  />
+
+            </div>
+            <div class="text col-md-6 col-sm-6">
+                <h3>完备的汽车评估</h3>
+                <p>一流的评估方案，让您的爱车物有所值，发挥余热。</p>
+                <button class="btn btn-info" style="width: 200px;"><a href="/user/estimate" style="position: relative;display: block;padding: 10px 15px;text-decoration: none;color: lightcyan;font-size: 20px;">免费估价</a></button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="question-wrap" style="margin-top: -50px;">
+    <span class="title">常见问题</span>
+    <div class="questionCon">
+        <div class="quesli">
+            <span class="questip" style="color: black;font-weight: bold;">1.欣欣的卖车模式是什么？</span>
+            <p class="questxt">欣欣依托全国约400个销售城市、上百万台车辆真实成交数据，为每一位车主提供免费上门或到店检测服务，30分钟签约成交及全程管家式车辆过户代办的便捷卖车服务，同时优信报价承诺价格7天有效。</p>
+        </div>
+        <div class="quesli quesRight">
+            <span class="questip" style="color: black;font-weight: bold;">2.在欣欣上卖车多久可以成交？</span>
+            <p class="questxt">报价当天即可成交。欣欣为您提供免费上门或到店车辆检测服务后，将于次日12点前为车主提供真实的车辆报价及专业的车况报告，优信报价7天有效，当天签约成交，优信即付车款。</p>
+        </div>
+        <div class="quesli change-h270">
+            <span class="questip" style="color: black;font-weight: bold;">3.卖车流程是怎么样的？</span>
+            <p class="questxt">1、登陆欣欣二手车App或官网www.xin.com预约卖车(支持自主或电话预约服务)；<br>
+                2、欣欣将根据与您确认的预约时间，安排专业检测师免费上门或门店检测服务；<br>
+                3、您将于次日12点前获得真实的欣欣报价及专业的车况报告，如您对报价满意即可签约成交，获得车辆首款（首款比例最高可达车款90%）；<br>
+                4、欣欣将为您提供全程管家式车辆过户协办服务，待车辆合法完成过户后将向您支付剩余应付尾款；</p>
+        </div>
+        <div class="quesli quesRight change-h270">
+            <span class="questip" style="color: black;font-weight: bold;">4.卖车需要准备哪些资料？</span>
+            <p class="questxt">车主本人需要提供身份证原件（非车主本人还需要提供车主委托证明及委托人身份证原件）、车辆行驶证、车辆登记证书、购置税本、购车发票、交强险单、本人名下银行卡；如果车辆为公户，还需要提供营业执照副本原件；如车辆为进口车，须提供进口机动车随车检验单。</p>
+        </div>
+        <div class="quesli change-h150">
+            <span class="questip" style="color: black;font-weight: bold;">5.在欣欣上出售车辆是否收费？</span>
+            <p class="questxt">全程为车主提供的是免费卖车服务，不收取任何无欣欣官方公示费用。</p>
+        </div>
+        <div class="quesli quesRight change-h150">
+            <span class="questip" style="color: black;font-weight: bold;">6.出售车辆需要符合怎样的条件？</span>
+            <p class="questxt">只要您的车辆符合国家法律法规且相关手续齐全齐全、真实，不存在权属不清、债务纠纷、手续缺失、违法违规、非法拼装等，均可在优信二手车进行出售。</p>
+        </div>
+        <div class="quesli change-h150">
+            <span class="questip" style="color: black;font-weight: bold;">7.如果车辆有违章是否可以出售？</span>
+            <p class="questxt">请您在选择签约成交前，自行处理好车辆违章及罚款，避免签约成交失败。</p>
+        </div>
+    </div>
+</div>
+<footer id="footer">
+    <div class="container">
+        <p>© 2018 All Rights Reserved.林雪瑞设计 </p>
+        <p>鲁ICP备160100号,地址：山东省烟台市芝罘区红旗中路186号,邮编：264001</p>
+    </div>
+</footer>
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        //轮播自动播放
+        $('#myCarousel').carousel({
+            //自动3秒播放
+            interval:3000,
+        });
+        //设置文字垂直居中，谷歌浏览器加载图片的顺序问题，导致高度无法获取
+        $(window).load(function () {
+            $('.text').eq(0).css('margin-top', ($('.auto').eq(0).height() - $('.text').eq(0).height()) / 2 + 'px');
+        });
+        $(window).resize(function () {
+            $('.text').eq(0).css('margin-top', ($('.auto').eq(0).height() - $('.text').eq(0).height()) / 2 + 'px');
+        });
+        $(window).load(function () {
+            $('.text').eq(1).css('margin-top', ($('.auto').eq(1).height() - $('.text').eq(1).height()) / 2 + 'px');
+        });
+
+        $(window).resize(function () {
+            $('.text').eq(1).css('margin-top', ($('.auto').eq(1).height() - $('.text').eq(1).height()) / 2 + 'px');
+        });
+    });
+</script>
+</body>
+</html>

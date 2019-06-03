@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"><!--thymeleaf的头文件-->
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>汽车详情页</title>
+
+
+    <link rel="stylesheet" type="text/css" href="/css/cardetail/base_53c0cf8.css">
+    <link rel="stylesheet" type="text/css" href="/css/cardetail/car_a3998bc.css">
+
+    <style>
+        .assort {
+            margin-bottom: 15px;
+        }
+        ul {
+            list-style: none;
+        }
+        .assort li.one {
+            width: 117px;
+        }
+        .assort li {
+            float: left;
+            text-align: center;
+            color: #a5abb2;
+            line-height: 24px;
+            font-size: 12px;
+            position: relative;
+        }
+        .assort li span {
+            display: block;
+            color: #495056;
+            font-size: 18px;
+            font-family: Microsoft Yahei;
+            padding-bottom: 3px;
+        }
+        .assort li.two {
+            width: 146px;
+        }
+        .assort li.three {
+            width: 97px;
+        }
+        .assort li.last {
+            width: 81px;
+        }
+        .btnbox a {
+            float: left;
+        }
+
+        .cd_m_i_imglist {
+            font-size: 0;
+            margin: -15px auto;
+            width: 1240px;
+        }
+        .cd_m_i_imglist dd {
+            width: 590px;
+            display: inline-block;
+            padding: 15px 30px 15px 0;
+        }
+
+
+        .carpic{
+            /*width: 900px;*/
+            margin: 0 auto;
+            overflow: auto;
+        }
+
+        .carpic ul{
+            list-style-type: none;
+        }
+
+        .carpic li img {
+            float: left;
+            margin: 10px;
+            border: 5px solid #fff;
+
+            -webkit-transition: box-shadow 0.5s ease;
+            -moz-transition: box-shadow 0.5s ease;
+            -o-transition: box-shadow 0.5s ease;
+            -ms-transition: box-shadow 0.5s ease;
+            transition: box-shadow 0.5s ease;
+        }
+
+        .carpic li img:hover {
+            -webkit-box-shadow: 0px 0px 7px rgba(255,255,255,0.9);
+            box-shadow: 0px 0px 7px rgba(255,255,255,0.9);
+        }
+    </style>
+</head>
+<body>
+
+<div class="header-wrap header-list-active" data-cityname="shanghai" data-type="1">
+    <div class="header">
+        <h1>
+            <a href="" class="logo" ><img src="/images/logo5.jpg" height="60px;" alt="二手车平台"/></a>
+        </h1>
+        <dl class=" abs" id="citySelect" style="display: block;margin-left: 67px;margin-top: 20px;">
+            <dt>欣欣二手车交易平台</dt>
+        </dl>
+        <div class="nav">
+            <a rel="nofollow" class="" href="/user/theMainPage" title="首页">首页</a>
+            <a rel="nofollow" class="top_buycar" href="/user/buyCar" title="买车">买车</a>
+            <a rel="nofollow" class="a_sellpage  top_sellcar" href="/user/sellCar" title="卖车">卖车</a>
+            <a rel="nofollow" id="php_half_city_link" class="top_halfprice " href="/user/carBaike" title="汽车百科">汽车百科</a>
+            <a href="/user/personCenter"><span class="glyphicon glyphicon-tint"></span> 个人中心</a>
+            <button class="btn btn-info" style="margin-top: 9px; margin-right: 7px" th:if="${session.currentUser==null}"><span class="glyphicon glyphicon-user"></span><a href="/user/info" style="text-decoration: none;">登录</a></button>
+            <button class="btn btn-info" style="margin-top: 9px;" th:if="${session.currentUser==null}"><span class="glyphicon glyphicon-plus"></span><a href="/user/temp" style="text-decoration: none;">注册</a></button>
+            <button class="btn btn-info" style="margin-top: 9px; margin-right: 7px" th:if="${session.currentUser!=null}" th:text="${session.currentUser.getPhone()}"></button>
+            <button class="btn btn-info" style="margin-top: 9px;" th:if="${session.currentUser!=null}"><a href="/user/quit">退出登录</a></button>
+        </div>
+    </div>
+</div>
+<div class="cd_m">
+    <div class="cd_m_nav" >
+        <div style="display:none;">
+            当前位置：
+            <a href="https://www.xin.com/">首页</a>&gt;
+            <a href="https://www.xin.com/suzhou/">苏州二手车</a>&gt;
+            <a href="https://www.xin.com/suzhou/s/">苏州二手车报价</a>&gt;
+            <a href="https://www.xin.com/suzhou/richan/">苏州日产二手车</a>&gt;
+            <a href="https://www.xin.com/suzhou/richan/xuanyi/">苏州二手日产轩逸</a>&gt;日产 轩逸 2016款 1.8 自动 XV智尊版
+        </div>
+    </div>
+    <div class="cd_m_info cd_m_info_zjf" data-zg="1">
+        <div class="cd_m_info_it1">
+            <img class="cd_m_info_mainimg" th:src="${waitSellCar.getHeadpath()}" >
+        </div>
+        <div class="cd_m_info_it2">
+            <div class="cd_m_h cd_m_h_zjf">
+                <span class="cd_m_h_tit" th:text="${waitSellCar.getCarbrand()}+'  '+${waitSellCar.getCarseries()}+'  '+${waitSellCar.getCarmodel()}"></span>
+            </div>
+            <p class="cd_m_info_price">
+                <span class="cd_preference"></span>
+                <span class="cd_m_info_jg">
+                    <b th:text="'￥'+${waitSellCar.getSellprice()}+'万元'"></b>
+                </span>
+                <span class="cd_m_info_qgzg">
+                    <span class="p-fyb-btm"></span>
+                    <span class="p-fyb">
+                    </span>
+                </span>
+                <span class="cd_m_info_qgzg_else_if"></span>
+            </p>
+            <ul class="cd_m_info_desc">
+                <li class="cd_m_desc_li cd_m_desc_line">
+                    <span class="cd_m_desc_val" th:text="${waitSellCar.getRegdate()}"></span>
+                    <span class="cd_m_desc_key">上牌时间</span>
+                </li>
+                <li class="cd_m_desc_li cd_m_desc_line">
+                    <a class="cd_m_desc_val" th:text="${waitSellCar.getDrivemiles()}" >
+                        0.4万公里
+                    </a>
+                    <span class="cd_m_desc_key">行驶里程</span>
+                </li>
+                <li class="cd_m_desc_li cd_m_desc_line">
+                    <span class="cd_m_desc_val cd_m_desc_cursor" th:text="${carDetail.getFuelmarking()}"><i class="cd_m_desc_ic"></i></span>
+                    <a class="cd_m_desc_key" target="_blank">燃油标号<i class="cd_m_desc_arrow"></i></a>
+                </li>
+                <li class="cd_m_desc_li cd_m_desc_line">
+                    <span class="cd_m_desc_val" th:text="${carDetail.getOutputl()}">1.8L</span>
+                    <span class="cd_m_desc_key">排量</span>
+                </li>
+                <li class="cd_m_desc_li">
+                    <span class="cd_m_desc_val" th:text="${waitSellCar.getRegcity()}"></span>
+                    <span class="cd_m_desc_key">上牌城市</span>
+                </li>
+                <div class="cd_m_clear"></div>
+            </ul>
+            <div class="cd_m_info_op">
+                <a class="cd_m_info_mfdh" href="javascript:void(0);" id="likebtn"><i class="icon phone"></i>收藏车源</a>
+                <a class="jp-im-pop cd_m_info_sccy" href="javascript:;" id="aptbtn"><i class="icon xin"></i>预约看车</a>
+                <div class="jp-tel-code-box p-tel-code-box">
+                    <a href="javascript:;"  class="jp-tel-code-btn" onclick="showPhone()"><i class="icon dhzx"></i>电话咨询</a>
+                    <div class="jp-tel-code p-tel-code">
+                        <div class="p-tel-code-ct">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cd_m_clear"></div>
+    </div>
+
+    <div id="cd_m_clxx" class="cd_m_i cd_m_clxx">
+        <div class="cd_m_i_h">车辆信息</div>
+        <div class="cd_m_i_jcfw">
+            <div>
+                <a href="javascript:;" class="config_spotlight_new" >
+                    <img  src="/images/cardetail/1.png" class="cd_m_i_jcfw_1" style="display: block;">
+                    主动制动
+                </a>
+                <a href="javascript:;" class="config_spotlight_new">
+                    <img  src="/images/cardetail/2.png" class="cd_m_i_jcfw_1" style="display: block;">
+                    并线辅助
+                </a>
+                <a href="javascript:;" class="config_spotlight_new" >
+                    <img src="/images/cardetail/3.png" class="cd_m_i_jcfw_1" style="display: block;">
+                    日间行车灯
+                </a>
+                <a href="javascript:;" class="config_spotlight_new" >
+                    <img src="/images/cardetail/4.png"  class="cd_m_i_jcfw_1" style="display: block;">
+                    车载蓝牙
+                </a>
+                <a href="javascript:;" class="config_spotlight_new" >
+                    <img src="/images/cardetail/5.png" class="cd_m_i_jcfw_1" style="display: block;">
+                    真皮座椅
+                </a>
+                <a href="javascript:;" class="config_spotlight_new" >
+                    <img src="/images/cardetail/6.png" class="cd_m_i_jcfw_1" style="display: block;">
+                    胎压监测
+                </a>
+                <a href="javascript:;" class="config_spotlight_new" data_ccid="186" >
+                    <img src="/images/cardetail/7.png" class="cd_m_i_jcfw_1" style="display: block;">
+                    无钥匙启动
+                </a>
+                <a href="javascript:;" class="config_spotlight_new" >
+                    <img src="/images/cardetail/8.png" class="cd_m_i_jcfw_1" style="display: block;">
+                    倒车影像
+                </a>
+            </div>
+        </div>
+
+        <div class="cd_m_i_pz">
+            <dl>
+                <dt>基本信息</dt>
+                <dd>
+                    <span class="cd_m_i_pz_tit" >最大马力(Ps)</span>
+                    <span class="cd_m_i_pz_val" th:text="${carDetail.maxhorsepower}"></span>
+                </dd>
+                <dd>
+                    <span class="cd_m_i_pz_tit">最大功率转速(rpm)</span>
+                    <span class="cd_m_i_pz_val">
+                        <a class="cd_m_innerlink1" href="https://www.xin.com/suzhou/richan/xuanyi/sn_k0-1/" target="_blank">
+                            <p th:text="${carDetail.maxpowerspeed}"></p>
+                        </a>
+                    </span>
+                </dd>
+                <dd><span class="cd_m_i_pz_tit">环保标准</span><span class="cd_m_i_pz_val" th:text="${carDetail.environmentprotectstandard}"></span></dd>
+                <dd><span class="cd_m_i_pz_tit">整车质保</span><span class="cd_m_i_pz_val" th:text="${carDetail.carqualityassurance}"></span></dd>
+                <dd><span class="cd_m_i_pz_tit">前悬架类型</span><span class="cd_m_i_pz_val" th:text="${carDetail.frontsuspensiontype}"></span></dd>
+                <dd><span class="cd_m_i_pz_tit">后悬架类型</span><span class="cd_m_i_pz_val" th:text="${carDetail.rearsuspensiontype}"></span></dd>
+            </dl>
+            <dl>
+                <dt>外观参数</dt>
+                <dd><span class="cd_m_i_pz_tit">长度(mm)</span><span class="cd_m_i_pz_val" th:text="${carDetail.length}+'mm'"></span></dd>
+                <dd><span class="cd_m_i_pz_tit">宽度(mm)</span><span class="cd_m_i_pz_val" th:text="${carDetail.width}+'mm'"></span></dd>
+                <dd><span class="cd_m_i_pz_tit">高度(mm)</span><span class="cd_m_i_pz_val" th:text="${carDetail.height}+'mm'"></span></dd>
+                <dd><span class="cd_m_i_pz_tit">进气形式</span><span class="cd_m_i_pz_val" th:text="${carDetail.intaketype}"></span></dd>
+                <dd>
+                    <span class="cd_m_i_pz_tit">助力类型</span>
+                    <span class="cd_m_i_pz_val">
+                        <a class="cd_m_innerlink1" href="https://www.xin.com/suzhou/richan/xuanyi/sn_l2/" target="_blank">
+                            <p th:text="${carDetail.assistancetype}"></p>
+                        </a>
+                    </span>
+                </dd>
+                <dd>
+                    <span class="cd_m_i_pz_tit">车身结构</span>
+                    <span class="cd_m_i_pz_val">
+                        <a class="cd_m_innerlink1" href="https://www.xin.com/suzhou/richan/xuanyi/sn_q5/" target="_blank">
+                            <p th:text="${carDetail.carstructure}"></p>
+                        </a>
+                    </span>
+                </dd>
+                <dd><span class="cd_m_i_pz_tit">整备质量</span><span class="cd_m_i_pz_val" th:text="${carDetail.weight}+'kg'">1270  kg </span></dd>
+                <dd><span class="cd_m_i_pz_tit">轴距</span><span class="cd_m_i_pz_val" th:text="${carDetail.wheelbase}+'mm'">2700  mm </span></dd>
+            </dl>
+            <dl>
+                <dt>发动机参数</dt>
+                <dd><span class="cd_m_i_pz_tit">发动机型号</span><span class="cd_m_i_pz_val" th:text="${carDetail.enginetype}"></span></dd>
+                <dd>
+                    <span class="cd_m_i_pz_tit">变速箱类型</span>
+                    <span class="cd_m_i_pz_val">
+                        <a class="cd_m_innerlink1" href="https://www.xin.com/suzhou/richan/xuanyi/sn_g1/" target="_blank">
+                            <p th:text="${carDetail.gearboxtype}"></p>
+                        </a>
+                    </span>
+                </dd>
+                <dd>
+                    <span class="cd_m_i_pz_tit">排量</span>
+                    <span class="cd_m_i_pz_val">
+                        <a class="cd_m_innerlink1" href="https://www.xin.com/suzhou/richan/xuanyi/sn_j1.6-2/" target="_blank">
+                            <p th:text="${carDetail.outputml}+'mL'"></p>                                            </a>
+                    </span>
+                </dd>
+                <dd><span class="cd_m_i_pz_tit">燃料形式</span><span class="cd_m_i_pz_val" th:text="${carDetail.fueltype}"></span></dd>
+                <dd><span class="cd_m_i_pz_tit">燃油标号</span><span class="cd_m_i_pz_val" th:text="${carDetail.fuelmarking}"></span></dd>
+                <dd><span class="cd_m_i_pz_tit">驱动方式</span><span class="cd_m_i_pz_val" th:text="${carDetail.drivingmode}"></span></dd>
+            </dl>
+        </div>
+    </div>
+</div>
+
+<div class="carpic" style="margin-left: 50px;">
+    <ul th:each="img:${carPicList}">
+        <li>
+            <a href="#">
+                <img width="590px" height="393.33px" th:src="${img.getPath()}" />
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+<input type="hidden" th:value="${session.currentUser.getUserid()}" id="userid">
+<input type="hidden" th:value="${waitSellCar.getWscid()}" id="wscid">
+
+<footer id="footer">
+    <div class="container">
+        <p>© 2018 All Rights Reserved.林雪瑞设计 </p>
+        <p>鲁ICP备160100号,地址：山东省烟台市芝罘区红旗中路186号,邮编：264001</p>
+    </div>
+</footer>
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+    $('#aptbtn').one('click',function () {
+        var userid=$('#userid').val();
+        var wscid=$('#wscid').val();
+        $.ajax({
+            type: "post",
+            url: "/user/appointLookCar",
+            data:{
+                "userid":userid,
+                "wscid":wscid,
+            },
+            success: function (d) {
+                if (d == "success") {
+                    alert('预约看车成功，请等待工作人员与您联系');
+                }
+                if (d == "error") {
+                    alert('预约失败!');
+                }
+            }
+        });
+    })
+
+    $('#likebtn').one('click',function () {
+        var userid=$('#userid').val();
+        var wscid=$('#wscid').val();
+        $.ajax({
+            type: "post",
+            url: "/user/collectCar",
+            data:{
+                "userid":userid,
+                "wscid":wscid,
+            },
+            success: function (d) {
+                if (d == "success") {
+                    alert('收藏成功');
+                }
+                if (d == "error") {
+                    alert('收藏失败!');
+                }
+            }
+        });
+    })
+
+    function showPhone(){
+        alert('请联系工作人员，手机号码：17862824894');
+    }
+
+</script>
+</body>
+</html>
