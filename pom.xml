@@ -125,6 +125,13 @@
 			<version>2.7.0</version>
 		</dependency>
 
+		<!--读取csv文件-->
+		<dependency>
+			<groupId>com.opencsv</groupId>
+			<artifactId>opencsv</artifactId>
+			<version>4.1</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
